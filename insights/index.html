@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Insights — RPV Global Strategies</title>
+  <meta name="description" content="Leituras institucionais: macro, alocação, política/regulação e offshore — com foco em aplicação prática.">
+  <meta name="author" content="RPV Global Strategies">
+  <meta name="theme-color" content="#0B1F3A">
+  <link rel="canonical" href="https://itxvitao.github.io/rpv-global-strategies/insights/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Insights — RPV Global Strategies">
+  <meta property="og:description" content="Macro, alocação, política/regulação e offshore — direto ao ponto, com profundidade.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itxvitao.github.io/rpv-global-strategies/insights/">
+  <meta property="og:image" content="https://itxvitao.github.io/rpv-global-strategies/assets/social-cover.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Insights — RPV Global Strategies">
+  <meta name="twitter:description" content="Macro, alocação e offshore — sem ruído.">
+  <meta name="twitter:image" content="https://itxvitao.github.io/rpv-global-strategies/assets/social-cover.jpg">
+
+  <!-- Icons -->
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+  <circle cx='32' cy='32' r='32' fill='%230B1F3A'/>
+  <text x='50%' y='50%' font-size='28' font-family='Montserrat, Arial, sans-serif' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central'>RPV</text>
+  </svg>">
+
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'], display: ['Playfair Display','ui-serif','Georgia'] },
+          colors: {
+            brand: {50:'#f1f5ff',100:'#e6eeff',200:'#c6d9ff',300:'#9dbaff',400:'#6d91ff',500:'#436cff',600:'#2c4fe0',700:'#213bb3',800:'#1b2f8c',900:'#16276f'},
+            ink: {50:'#f8fafc',900:'#0b1220'},
+            gold:{400:'#c8a960',500:'#b8943b'}
+          },
+          boxShadow: { soft:'0 8px 30px rgba(2,6,23,0.08)', glow:'0 10px 40px rgba(67,108,255,.25)' },
+          keyframes: {
+            aurora: { '0%,100%':{transform:'translate3d(0,0,0) scale(1)'}, '50%':{transform:'translate3d(10%, -10%, 0) scale(1.1)'} },
+            shimmer: { '0%':{backgroundPosition:'200% 0'}, '100%':{backgroundPosition:'-200% 0'} },
+            float: { '0%,100%':{transform:'translateY(0)'}, '50%':{transform:'translateY(-6px)'} },
+            in: { '0%':{opacity:0, transform:'translateY(12px) scale(.98)'}, '100%':{opacity:1, transform:'translateY(0) scale(1)'} }
+          },
+          animation: {
+            aurora:'aurora 12s ease-in-out infinite',
+            shimmer:'shimmer 2s linear infinite',
+            float:'float 6s ease-in-out infinite',
+            in:'in .6s cubic-bezier(.16,1,.3,1) both'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .bg-grid{background-image:radial-gradient(rgba(67,108,255,.08) 1px,transparent 1px);background-size:18px 18px}
+    .glass{backdrop-filter:saturate(140%) blur(8px)}
+    .g-border{position:relative}
+    .g-border::before{content:"";position:absolute;inset:-1px;border-radius:16px;padding:1px;background:conic-gradient(from 180deg at 50% 50%,#436cff66,#7bd9b566,#436cff66);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+  </style>
+  <script>
+    (function(){
+      const stored=localStorage.getItem('theme');
+      const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if(stored==='dark'||(!stored&&prefersDark))document.documentElement.classList.add('dark');
+    })();
+  </script>
+</head>
+
+<body class="bg-ink-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans">
+  <!-- Top Bar -->
+  <div class="w-full bg-brand-900/95 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
+      <p class="opacity-90">Conteúdo educativo. Não constitui recomendação de investimento.</p>
+      <button id="themeToggle" class="rounded-lg px-3 py-1.5 bg-brand-700 hover:bg-brand-600 transition text-sm">Alternar tema</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="/home.html" class="flex items-center gap-3 group">
+          <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 ring-2 ring-brand-400/30 shadow-soft grid place-items-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-white"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Z" stroke="currentColor" stroke-width="1.5"/><path d="M2 12h20M12 2c3 3.5 3 16.5 0 20M12 2c-3 3.5-3 16.5 0 20" stroke="currentColor" stroke-width="1.2"/></svg>
+          </div>
+          <div>
+            <div class="text-lg font-semibold tracking-tight">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+            <div class="text-[12px] uppercase tracking-widest text-slate-500 dark:text-slate-400">Insights • Estratégias • Global</div>
+          </div>
+        </a>
+
+        <!-- Menu desktop -->
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="/home.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Início</a>
+          <a href="/pilares.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Pilares</a>
+          <a href="/sobre.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Sobre Nós</a>
+          <a href="/newsletter.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Newsletter</a>
+          <a href="/contato.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Contato</a>
+          <span class="text-sm inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-brand-700/30 text-white bg-brand-700">Blog</span>
+        </nav>
+
+        <!-- Menu mobile -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 border border-slate-300/40 dark:border-slate-700"><span class="sr-only">Abrir menu</span>
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Drawer mobile -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <nav class="px-4 py-3 space-y-2">
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/home.html">Início</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/pilares.html">Pilares</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/sobre.html">Sobre Nós</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/newsletter.html">Newsletter</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/contato.html">Contato</a>
+        <span class="block px-3 py-2 rounded-lg bg-brand-600/10 text-brand-800 dark:text-brand-200">Blog</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO com "aurora" animada + barra de busca avançada -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900 bg-grid"></div>
+    <div class="pointer-events-none absolute -inset-x-20 -top-32 h-64 blur-3xl opacity-60">
+      <div class="w-full h-full bg-gradient-to-r from-brand-600/30 via-gold-500/20 to-brand-900/30 rounded-full animate-aurora"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <p class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-brand-700 dark:text-brand-400"><span class="h-2 w-2 bg-gold-500 rounded-full"></span> Blog • Insights</p>
+          <h1 class="mt-3 font-display text-4xl sm:text-5xl leading-tight">Leituras objetivas — com profundidade institucional</h1>
+          <p class="mt-3 text-slate-600 dark:text-slate-300 max-w-2xl">Macro, alocação e política/regulação com foco no que altera produção, consumo, emprego e renda. Conteúdo recorrente e acionável.</p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid lg:grid-cols-12 gap-4 items-end">
+        <div class="lg:col-span-8">
+          <label class="block text-sm mb-2" for="q">Buscar <span class="text-slate-400">(atalho / )</span></label>
+          <div class="relative g-border rounded-2xl">
+            <input id="q" type="search" placeholder="Tema, palavra‑chave ou setor…" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600"/>
+            <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500">/</div>
+          </div>
+        </div>
+        <div class="lg:col-span-4">
+          <label class="block text-sm mb-2" for="sort">Ordenar</label>
+          <select id="sort" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600">
+            <option value="new">Mais recentes</option>
+            <option value="read">Leitura mais rápida</option>
+            <option value="long">Leitura mais profunda</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Tabs com indicador animado -->
+      <div class="mt-5 relative">
+        <div id="tabs" class="flex flex-wrap gap-2 relative">
+          <button class="tab px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700" data-chip="Todos">Todos</button>
+          <button class="tab px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700" data-chip="Macroeconomia">Macroeconomia</button>
+          <button class="tab px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700" data-chip="Política & Regulação">Política & Regulação</button>
+          <button class="tab px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700" data-chip="Estratégia">Estratégia</button>
+          <button class="tab px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700" data-chip="Carteiras & Alocação">Carteiras & Alocação</button>
+          <button class="tab px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700" data-chip="Mercado">Mercado</button>
+          <span id="tabIndicator" class="absolute h-9 rounded-xl bg-brand-600/10 ring-1 ring-brand-600/30 transition-all duration-300 -z-10"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTA + LATERAL -->
+  <section class="py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-6">
+      <!-- Cards com layout avançado (destacado + grade responsiva) -->
+      <div class="lg:col-span-8 space-y-6" id="cards">
+        <!-- conteúdo via JS -->
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-6">
+        <!-- Destaque fixo -->
+        <article class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft animate-in">
+          <a href="/insights/2025-08-custo-de-capital.html" class="block">
+            <div class="h-36 bg-gradient-to-br from-brand-600/25 to-brand-900/25"></div>
+            <div class="p-6">
+              <div class="text-xs uppercase tracking-widest text-brand-700 dark:text-brand-400">Macro • Framework</div>
+              <h3 class="mt-2 text-lg font-semibold">WACC 2025: juros reais, ERP e dólar</h3>
+              <p class="mt-2 text-slate-600 dark:text-slate-300 line-clamp-3">Como parametrizar WACC por setor (Brasil/EUA) e implicações táticas.</p>
+              <div class="mt-3 text-sm text-slate-500">Leitura ~ 10 min</div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Newsletter -->
+        <div class="g-border rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white/80 dark:bg-slate-900/60 shadow-soft glass">
+          <h4 class="text-sm font-semibold">Radar RPV</h4>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Receba o melhor da quinzena no seu e‑mail.</p>
+          <form action="https://formspree.io/f/SEU_ENDPOINT" method="POST" class="mt-3" onsubmit="newsletterSideSuccess(event)">
+            <input name="email" type="email" required placeholder="voce@exemplo.com" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-900 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-600" />
+            <button class="mt-2 w-full rounded-xl px-4 py-2 bg-brand-700 hover:bg-brand-600 text-white">Assinar</button>
+            <p id="newsletterSideNote" class="mt-2 text-xs text-slate-500">Sem spam.</p>
+            <input type="text" name="_gotcha" style="display:none">
+          </form>
+        </div>
+      </aside>
+    </div>
+
+    <!-- CTA de carregamento progressivo -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mt-6 flex justify-center">
+        <button id="loadMore" class="px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">Carregar mais</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Quick View -->
+  <div id="quickView" class="fixed inset-0 z-50 bg-slate-950/60 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="qvTitle">
+    <div class="max-w-xl w-full rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-glow animate-in">
+      <div class="p-6">
+        <div class="text-xs uppercase tracking-widest text-brand-700 dark:text-brand-400" id="qvCat"></div>
+        <h3 id="qvTitle" class="mt-1 text-xl font-semibold"></h3>
+        <p id="qvExcerpt" class="mt-2 text-slate-600 dark:text-slate-300"></p>
+        <div class="mt-4 flex items-center justify-between text-sm text-slate-500" id="qvMeta"></div>
+        <div class="mt-6 flex gap-3">
+          <a id="qvLink" href="#" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-brand-700 hover:bg-brand-600 text-white">Ler análise</a>
+          <button id="qvClose" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-slate-300 dark:border-slate-700">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="text-lg font-semibold">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 max-w-md">Conteúdo institucional e prático sobre alocação global, oportunidades internacionais e estruturas offshore.</p>
+        </div>
+        <div>
+          <div class="font-semibold">Mapa do site</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="hover:underline" href="/home.html">Início</a></li>
+            <li><a class="hover:underline" href="/pilares.html">Pilares</a></li>
+            <li><a class="hover:underline" href="/newsletter.html">Newsletter</a></li>
+            <li><a class="hover:underline" href="/contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold">Legal</div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">O conteúdo deste site é educativo, não constituindo recomendação de investimento ou consultoria individualizada.</p>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+        <p>© <span id="year"></span> RPV Global Strategies. Todos os direitos reservados.</p>
+        <a class="hover:underline" href="/politica-de-privacidade.html">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DATA & RENDER -->
+  <script>
+    const INSIGHTS = [
+      { title: 'ETF do mês: tese, riscos e operacional', slug: '/insights/etf-do-mes.html', date: '2025-08-10', minutes: 4, category: 'Mercado', risk:'Moderado', excerpt: 'Resumo institucional com pontos de entrada/saída, drivers e custos BR x exterior.', featured:false },
+      { title: 'Guia offshore para iniciantes (custos & passos)', slug: '/insights/guia-offshore-iniciante.html', date: '2025-08-08', minutes: 6, category: 'Política & Regulação', risk:'Baixo', excerpt: 'O essencial, sem atalhos: custos, compliance e o que realmente acontece na prática.', featured:false },
+      { title: 'Nota macro: o que realmente importa na semana', slug: '/insights/nota-macro.html', date: '2025-08-07', minutes: 3, category: 'Macroeconomia', risk:'Variável', excerpt: 'Juros, dólar, spreads e implicações táticas para uma carteira global.', featured:false },
+      { title: 'WACC 2025: juros reais, ERP e dólar', slug: '/insights/2025-08-custo-de-capital.html', date: '2025-08-12', minutes: 10, category: 'Macroeconomia', risk:'—', excerpt:'Framework para parametrizar WACC por setor (Brasil/EUA) e impactos no valuation.', featured:true },
+      { title: 'Core + Satélites para UHNW/HNW', slug: '/insights/2025-08-core-satellite.html', date: '2025-08-05', minutes: 8, category: 'Carteiras & Alocação', risk:'Moderado', excerpt:'Arquitetura de portfólio institucional com sizing, trilhas de risco e rebalance.', featured:false },
+      { title: 'Quando migrar de risk‑off para risk‑on?', slug: '/insights/2025-08-estrategia-risk-on.html', date: '2025-08-08', minutes: 7, category: 'Estratégia', risk:'Variável', excerpt:'Sinais quantitativos/qualitativos de mudança de regime: crédito, tendência e vol.', featured:false },
+      { title: 'Volatilidade para swing trades (EWMA/GARCH/IV)', slug: '/insights/2025-08-volatilidade-swing-trade.html', date: '2025-08-03', minutes: 11, category: 'Mercado', risk:'Alto', excerpt:'Como combinar EWMA, GARCH(1,1) e vol implícita no sizing de ações e opções.', featured:false }
+    ];
+
+    const cardsEl = document.getElementById('cards');
+    const q = document.getElementById('q');
+    const sort = document.getElementById('sort');
+    const tabs = Array.from(document.querySelectorAll('.tab'));
+    const tabIndicator = document.getElementById('tabIndicator');
+    const yearEl = document.getElementById('year');
+    yearEl.textContent = new Date().getFullYear();
+
+    let active = new Set();
+    let page = 1; // paginação simples
+    const PAGE_SIZE = 6;
+
+    // Deep-link (?cat=Macroeconomia&q=...) e "/" para focar busca
+    const params = new URLSearchParams(location.search);
+    const initialCat = params.get('cat');
+    const initialQ = params.get('q');
+    if(initialQ){ q.value = initialQ; }
+    if(initialCat && initialCat !== 'Todos'){ active.add(initialCat); }
+
+    document.addEventListener('keydown', (e)=>{ if(e.key === '/') { e.preventDefault(); q.focus(); } });
+
+    function formatDate(iso){
+      const d = new Date(iso + 'T00:00:00');
+      return d.toLocaleDateString('pt-BR', {day:'2-digit', month:'short', year:'numeric'}).replace('.', '');
+    }
+
+    function cardTemplate(x, i){
+      const base = `rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft will-change-transform`;
+      const featured = x.featured ? 'lg:col-span-2' : '';
+      const delay = i * 60;
+      return `
+      <article class="${base} ${featured} reveal" style="animation-delay:${delay}ms">
+        <div class="h-44 bg-gradient-to-br from-brand-600/30 to-brand-900/30 relative overflow-hidden">
+          <div class="absolute inset-0 bg-[linear-gradient(110deg,rgba(255,255,255,.10),rgba(255,255,255,.04),transparent)] bg-[length:200%_100%] animate-shimmer"></div>
+        </div>
+        <div class="p-6">
+          <div class="text-xs uppercase tracking-widest text-brand-700 dark:text-brand-400">${x.category}</div>
+          <h3 class="mt-2 text-xl font-semibold">${x.title}</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">${x.excerpt}</p>
+          <div class="mt-4 flex items-center justify-between text-sm text-slate-500">
+            <span>${formatDate(x.date)} • ${x.minutes} min</span>
+            <span>Risco: ${x.risk}</span>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <a href="${x.slug}" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-brand-700 hover:bg-brand-600 text-white">Ler análise</a>
+            <button class="inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-slate-300 dark:border-slate-700" data-qv='${JSON.stringify(x).replace(/"/g,'&quot;')}'>Prévia</button>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function computeList(){
+      const term = (q.value||'').toLowerCase();
+      let list = INSIGHTS.filter(x => {
+        const tagOK = active.size ? active.has(x.category) : true;
+        const textOK = !term ? true : (x.title.toLowerCase().includes(term) || x.excerpt.toLowerCase().includes(term));
+        return tagOK && textOK;
+      });
+      if(sort.value==='new') list.sort((a,b)=> b.date.localeCompare(a.date));
+      else if(sort.value==='read') list.sort((a,b)=> a.minutes - b.minutes);
+      else if(sort.value==='long') list.sort((a,b)=> b.minutes - a.minutes);
+      // coloca featured no topo
+      list.sort((a,b)=> (b.featured?1:0) - (a.featured?1:0));
+      return list;
+    }
+
+    function render(reset=false){
+      const list = computeList();
+      const slice = list.slice(0, PAGE_SIZE*page);
+      const gridOpen = '<div class="grid md:grid-cols-2 gap-6">';
+      const gridClose = '</div>';
+      const html = slice.map((x,i)=> cardTemplate(x,i)).join('');
+      if(reset) cardsEl.innerHTML = gridOpen + html + gridClose;
+      else cardsEl.innerHTML = gridOpen + html + gridClose;
+      document.getElementById('loadMore').classList.toggle('hidden', slice.length >= list.length);
+      attachReveals();
+      bindQuickViews();
+      persistState();
+    }
+
+    // Animated tabs indicator
+    function moveIndicator(el){
+      const r = el.getBoundingClientRect();
+      const p = el.parentElement.getBoundingClientRect();
+      tabIndicator.style.left = (r.left - p.left) + 'px';
+      tabIndicator.style.width = r.width + 'px';
+    }
+
+    tabs.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const label = btn.dataset.chip;
+        if(label==='Todos'){ active.clear(); } else { active = new Set([label]); }
+        tabs.forEach(b=> b.classList.remove('bg-brand-600/10','text-brand-800','dark:text-brand-200'));
+        btn.classList.add('bg-brand-600/10','text-brand-800','dark:text-brand-200');
+        moveIndicator(btn);
+        page = 1; render(true);
+      });
+    });
+
+    // Persistência básica (filtro + ordenação + busca)
+    function persistState(){
+      const s = {active:[...active], sort:sort.value, q:q.value};
+      localStorage.setItem('rpv_insights_state', JSON.stringify(s));
+    }
+    function restoreState(){
+      const raw = localStorage.getItem('rpv_insights_state');
+      if(!raw) return;
+      try{
+        const s = JSON.parse(raw);
+        if(s.q) q.value = s.q;
+        if(s.sort) sort.value = s.sort;
+        if(Array.isArray(s.active) && s.active.length){ active = new Set(s.active); const tab = tabs.find(t=>t.dataset.chip===s.active[0]); tab && tab.click(); }
+      }catch(e){}
+    }
+
+    function attachReveals(){
+      const els = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('animate-in'); io.unobserve(en.target); } });
+      },{threshold:0.08});
+      els.forEach(el=> io.observe(el));
+    }
+
+    function bindQuickViews(){
+      document.querySelectorAll('[data-qv]').forEach(btn=>{
+        btn.onclick = ()=>{
+          const data = JSON.parse(btn.getAttribute('data-qv'));
+          document.getElementById('qvCat').textContent = data.category;
+          document.getElementById('qvTitle').textContent = data.title;
+          document.getElementById('qvExcerpt').textContent = data.excerpt;
+          document.getElementById('qvMeta').textContent = `${formatDate(data.date)} • ${data.minutes} min • Risco: ${data.risk}`;
+          const link = document.getElementById('qvLink');
+          link.href = data.slug;
+          const qv = document.getElementById('quickView');
+          qv.classList.remove('hidden');
+          qv.classList.add('flex');
+          document.body.classList.add('overflow-hidden');
+          document.getElementById('qvClose').focus();
+        };
+      });
+    }
+
+    document.getElementById('qvClose').onclick = ()=>{ const qv = document.getElementById('quickView'); qv.classList.remove('flex'); qv.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); };
+    document.getElementById('quickView').addEventListener('click', (e)=>{ if(e.target.id==='quickView'){ const qv = e.currentTarget; qv.classList.remove('flex'); qv.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); } });
+
+    // Eventos
+    q.addEventListener('input', ()=>{ page=1; render(true); });
+    sort.addEventListener('change', ()=>{ page=1; render(true); });
+    document.getElementById('loadMore').addEventListener('click', ()=>{ page++; render(); });
+
+    // Menu mobile + tema
+    document.getElementById('menuBtn')?.addEventListener('click', () => {
+      document.getElementById('mobileNav').classList.toggle('hidden');
+    });
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      const root = document.documentElement; const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    function newsletterSideSuccess(e){ e.preventDefault(); const n = document.getElementById('newsletterSideNote'); n.textContent='Obrigado! Confirme no seu e‑mail.'; n.classList.add('text-brand-700','dark:text-brand-400'); }
+
+    // Acessibilidade: ESC fecha o modal
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='Escape'){
+        const qv = document.getElementById('quickView');
+        if(!qv.classList.contains('hidden')){
+          qv.classList.remove('flex');
+          qv.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }
+      }
+    });
+
+    // Init
+    restoreState();
+    render(true);
+    // posiciona indicador na primeira aba (Todos)
+    moveIndicator(document.querySelector('.tab'));
+  </script>
+</body>
+</html>

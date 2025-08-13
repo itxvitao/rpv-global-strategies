@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Curva global e prêmio de risco: onde está? — RPV Global Strategies</title>
+  <meta name="description" content="Resumo macro em 3 pontos, implicações táticas na alocação e uma nota offshore prática — leitura objetiva, sem ruído.">
+  <meta name="author" content="RPV Global Strategies">
+  <meta name="theme-color" content="#0B1F3A">
+  <link rel="canonical" href="https://itxvitao.github.io/rpv-global-strategies/insights/2025-08-curva-global-premio-risco.html">
+
+  <!-- Favicon (RPV redondo) -->
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+  <circle cx='32' cy='32' r='32' fill='%230B1F3A'/>
+  <text x='50%' y='50%' font-size='28' font-family='Montserrat, Arial, sans-serif' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central'>RPV</text>
+  </svg>">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Curva global e prêmio de risco: onde está? — RPV Global Strategies">
+  <meta property="og:description" content="Macro em 3 pontos, tática de alocação e nota offshore. Leitura objetiva, sem ruído.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://itxvitao.github.io/rpv-global-strategies/insights/2025-08-curva-global-premio-risco.html">
+  <meta property="og:image" content="https://itxvitao.github.io/rpv-global-strategies/assets/social-cover.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Curva global e prêmio de risco: onde está? — RPV Global Strategies">
+  <meta name="twitter:description" content="Macro em 3 pontos, tática de alocação e nota offshore — direto ao ponto.">
+  <meta name="twitter:image" content="https://itxvitao.github.io/rpv-global-strategies/assets/social-cover.jpg">
+
+  <!-- Fonts / Tailwind -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'], display: ['Playfair Display','ui-serif','Georgia'] },
+          colors: {
+            brand:{50:'#f1f5ff',100:'#e6eeff',200:'#c6d9ff',300:'#9dbaff',400:'#6d91ff',500:'#436cff',600:'#2c4fe0',700:'#213bb3',800:'#1b2f8c',900:'#16276f'},
+            gold:{400:'#c8a960',500:'#b8943b'}
+          },
+          boxShadow:{ soft:'0 8px 30px rgba(2,6,23,0.08)'}
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .prose p { margin-top:.75rem }
+    .tag { padding:.15rem .5rem; border-radius:.5rem; font-size:.75rem }
+  </style>
+
+  <!-- Persistência do tema -->
+  <script>
+    (function () {
+      const s = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (s==='dark'||(!s&&prefersDark)) document.documentElement.classList.add('dark');
+    })();
+  </script>
+</head>
+
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans">
+
+  <!-- Top bar -->
+  <div class="w-full bg-brand-900/95 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
+      <p class="opacity-90">RPV Global Strategies — Insight</p>
+      <button id="themeToggle" class="rounded-lg px-3 py-1.5 bg-brand-700 hover:bg-brand-600 transition text-sm">Alternar tema</button>
+    </div>
+  </div>
+
+  <!-- NAV (padronizada) -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="/home.html" class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 ring-2 ring-brand-400/30 shadow-soft grid place-items-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-white">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M2 12h20M12 2c3 3.5 3 16.5 0 20M12 2c-3 3.5-3 16.5 0 20" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-lg font-semibold tracking-tight">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+            <div class="text-[12px] uppercase tracking-widest text-slate-500 dark:text-slate-400">Insights • Estratégias • Global</div>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="/home.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Início</a>
+          <a href="/sobre.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Sobre Nós</a>
+          <a href="/pilares.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Pilares</a>
+          <a href="/insights/" class="text-sm text-brand-700 dark:text-brand-400 font-medium">Insights</a>
+          <a href="/newsletter.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Newsletter</a>
+          <a href="/contato.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Contato</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 border border-slate-300/40 dark:border-slate-700">
+          <span class="sr-only">Abrir menu</span>
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <nav class="px-4 py-3 space-y-2">
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/home.html">Início</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/sobre.html">Sobre Nós</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/pilares.html">Pilares</a>
+        <a class="block px-3 py-2 rounded-lg bg-brand-600/10 text-brand-800 dark:text-brand-200" href="/insights/">Insights</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/newsletter.html">Newsletter</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO do post -->
+  <section class="py-12 sm:py-16 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900 border-b border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <nav class="text-sm text-slate-500 dark:text-slate-400">
+        <a href="/rpv-global-strategies/insights/" class="hover:underline">Insights</a>
+        <span class="mx-1">/</span>
+        <span>Curva global e prêmio de risco</span>
+      </nav>
+
+      <div class="mt-3 inline-flex items-center gap-2 text-xs uppercase tracking-widest text-slate-500">
+        <time datetime="2025-08-13">13 Ago 2025</time> •
+        <span class="tag bg-brand-600/10 text-brand-700 dark:text-brand-300">Macro</span>
+        <span class="tag bg-brand-600/10 text-brand-700 dark:text-brand-300">Tática</span>
+        <span class="tag bg-brand-600/10 text-brand-700 dark:text-brand-300">Offshore</span>
+      </div>
+
+      <h1 class="mt-2 font-display text-3xl sm:text-4xl">Curva global e prêmio de risco: onde está?</h1>
+      <p class="mt-3 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
+        Regime de juros, implicações educativas para a alocação e uma nota prática sobre custos offshore — leitura objetiva, sem ruído.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO -->
+  <main class="pb-20">
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 prose prose-invert:dark">
+      <article class="mt-8">
+        <h2 class="text-xl font-semibold">Macro em 3 pontos</h2>
+        <ul class="mt-2 list-disc ml-5 text-slate-700 dark:text-slate-300">
+          <li><strong>Curvas desenvolvidas</strong>: inclinação moderada com prêmio de prazo comprimido.</li>
+          <li><strong>Inflação</strong>: núcleos desacelerando, serviços “pegajosos”.</li>
+          <li><strong>Moedas</strong>: diferencial de juros ainda pesa; atenção a surpresas de política monetária.</li>
+        </ul>
+      </article>
+
+      <article class="mt-8">
+        <h2 class="text-xl font-semibold">Tática / Alocação (educativo)</h2>
+        <p class="mt-2 text-slate-700 dark:text-slate-300">
+          Exemplos didáticos: (i) rebalanceamento semestral em bandas, (ii) amortecedor de duration curta em cenário de incerteza de cortes, (iii) teto de exposição tática por classe para evitar “bet” concentrado.
+        </p>
+      </article>
+
+      <article class="mt-8">
+        <h2 class="text-xl font-semibold">Nota Offshore</h2>
+        <p class="mt-2 text-slate-700 dark:text-slate-300">
+          Custos práticos: spread cambial + tarifa de remessa + custody fee. Checar a <em>all‑in</em> anual antes de decidir a jurisdição.
+          Lembrando: conteúdo educativo; execução jurídica/fiscal exige assessoria especializada.
+        </p>
+      </article>
+
+      <aside class="mt-8 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-sm">
+        <strong>Transparência:</strong> material educativo e informativo, sem recomendação de investimento individual.
+      </aside>
+
+      <div class="mt-10 flex items-center justify-between gap-4 text-sm">
+        <a href="/rpv-global-strategies/insights/" class="inline-flex items-center gap-2 hover:underline">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Voltar para Insights
+        </a>
+        <a href="/rpv-global-strategies/newsletter.html" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-brand-700 hover:bg-brand-600 text-white shadow-soft">Assine o Radar RPV</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (padronizado) -->
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="text-lg font-semibold">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 max-w-md">
+            Conteúdo institucional e prático sobre alocação global, oportunidades internacionais e estruturas offshore. Para investidores que buscam clareza e execução.
+          </p>
+        </div>
+        <div>
+          <div class="font-semibold">Mapa do site</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="hover:underline" href="/home.html">Início</a></li>
+            <li><a class="hover:underline" href="/rpv-global-strategies/sobre.html">Sobre Nós</a></li>
+            <li><a class="hover:underline" href="/rpv-global-strategies/pilares.html">Pilares</a></li>
+            <li><a class="hover:underline" href="/rpv-global-strategies/newsletter.html">Newsletter</a></li>
+            <li><a class="hover:underline" href="/rpv-global-strategies/contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold">Legal</div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            O conteúdo deste site é exclusivamente educativo e informativo, não constituindo recomendação de investimento,
+            oferta de valores mobiliários, consultoria ou análise individualizada.
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+        <p>© <span id="year"></span> RPV Global Strategies. Todos os direitos reservados.</p>
+        <a class="hover:underline" href="/rpv-global-strategies/politica-de-privacidade.html">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+
+    // Toggle tema
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle?.addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Ano no footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
