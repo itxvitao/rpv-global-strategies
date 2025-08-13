@@ -5,8 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Sobre Nós — RPV Global Strategies</title>
-  <meta name="description" content="Conheça os fundadores da RPV Global Strategies e a trajetória que conecta varejo, asset allocation e estruturas internacionais." />
-  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Conheça os fundadores da RPV Global Strategies e a trajetória que conecta varejo, asset allocation e estruturas internacionais.">
+  <meta name="author" content="RPV Global Strategies">
+  <meta name="theme-color" content="#0B1F3A">
+  <link rel="canonical" href="https://itxvitao.github.io/rpv-global-strategies/sobre.html">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+  <circle cx='32' cy='32' r='32' fill='%230B1F3A'/>
+  <text x='50%' y='50%' font-size='28' font-family='Montserrat, Arial, sans-serif' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central'>RPV</text>
+  </svg>">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sobre Nós — RPV Global Strategies">
+  <meta property="og:description" content="Conheça os fundadores e a história por trás da RPV Global Strategies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itxvitao.github.io/rpv-global-strategies/sobre.html">
+  <meta property="og:image" content="https://itxvitao.github.io/rpv-global-strategies/assets/social-cover.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sobre Nós — RPV Global Strategies">
+  <meta name="twitter:description" content="História, experiência e visão da RPV Global Strategies.">
+  <meta name="twitter:image" content="https://itxvitao.github.io/rpv-global-strategies/assets/social-cover.jpg">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,12 +52,13 @@
               200: '#c6d9ff',
               300: '#9dbaff',
               400: '#6d91ff',
-              500: '#436cff',
+              500: '#436cff', /* azul petróleo institucional */
               600: '#2c4fe0',
               700: '#213bb3',
               800: '#1b2f8c',
               900: '#16276f'
             },
+            ink: { 50: '#f8fafc', 900:'#0b1220' },
             gold: { 400: '#c8a960', 500: '#b8943b' }
           },
           boxShadow: { soft: '0 8px 30px rgba(2, 6, 23, 0.08)' }
@@ -49,7 +72,11 @@
     (function () {
       const stored = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (stored === 'dark' || (!stored && prefersDark)) document.documentElement.classList.add('dark');
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     })();
   </script>
 
@@ -57,6 +84,7 @@
     body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   </style>
 </head>
+
 
 <body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans">
   <!-- Top bar -->
