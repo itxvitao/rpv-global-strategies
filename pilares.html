@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pilares — RPV Global Strategies</title>
+  <meta name="description" content="Os três pilares da RPV Global Strategies: Assessoria & Varejo, Asset Allocation e Offshore & Trusts — com entregas práticas e exemplos." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            display: ['Playfair Display', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            brand: {
+              50:  '#f1f5ff',
+              100: '#e6eeff',
+              200: '#c6d9ff',
+              300: '#9dbaff',
+              400: '#6d91ff',
+              500: '#436cff',
+              600: '#2c4fe0',
+              700: '#213bb3',
+              800: '#1b2f8c',
+              900: '#16276f'
+            },
+            gold: { 400: '#c8a960', 500: '#b8943b' }
+          },
+          boxShadow: { soft: '0 8px 30px rgba(2, 6, 23, 0.08)' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Persistência do tema -->
+  <script>
+    (function () {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) document.documentElement.classList.add('dark');
+    })();
+  </script>
+
+  <style>
+    body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .accordion-content { display: none; }
+    .accordion.open .accordion-content { display: block; }
+  </style>
+</head>
+
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans">
+
+  <!-- Top Bar / Contexto da página -->
+  <div class="w-full bg-brand-900/95 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
+      <p class="opacity-90">RPV Global Strategies — Pilares</p>
+      <button id="themeToggle" class="rounded-lg px-3 py-1.5 bg-brand-700 hover:bg-brand-600 transition text-sm">
+        Alternar tema
+      </button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 ring-2 ring-brand-400/30 shadow-soft grid place-items-center">
+            <!-- Ícone globo minimalista -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-white">
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20Z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M2 12h20M12 2c3 3.5 3 16.5 0 20M12 2c-3 3.5-3 16.5 0 20" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-lg font-semibold tracking-tight">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+            <div class="text-[12px] uppercase tracking-widest text-slate-500 dark:text-slate-400">Insights • Estratégias • Global</div>
+          </div>
+        </a>
+
+        <!-- Menu desktop -->
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="home.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Home</a>
+          <a href="pilares.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Pilares</a>
+          <a href="sobre.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Sobre Nós</a>
+          <a href="newsletter.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Newsletter</a>
+          <a href="contato.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Contato</a>
+          <a href="/insights/index.html" class="text-sm inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-brand-700/30 text-brand-800 dark:text-brand-200 hover:bg-brand-600 hover:text-white transition">
+            Entrar no Blog
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </nav>
+
+        <!-- Menu mobile -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 border border-slate-300/40 dark:border-slate-700">
+          <span class="sr-only">Abrir menu</span>
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Drawer mobile -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <nav class="px-4 py-3 space-y-2">
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="home.html">Insights</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="pilares.html">Pilares</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="sobre.html">Sobre Nós</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="newsletter.html">Newsletter</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="contato.html">Contato</a>
+        <a class="block px-3 py-2 rounded-lg bg-brand-600/10 text-brand-800 dark:text-brand-200 hover:bg-brand-600/20" href="/insights/index.html">Entrar no Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <p class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-brand-700 dark:text-brand-400">
+        <span class="h-2 w-2 bg-gold-500 rounded-full"></span> Nosso framework
+      </p>
+      <h1 class="mt-3 font-display text-4xl sm:text-5xl">Os três pilares que guiam tudo o que publicamos</h1>
+      <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+        Pílulas práticas e institucionais — do varejo à mesa de alocação, até a estrutura internacional.
+      </p>
+    </div>
+  </section>
+
+  <!-- PILARES (Acordeões) -->
+  <section class="py-10 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-3 gap-6">
+      <!-- P1 -->
+      <article class="accordion rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+        <header class="flex items-center justify-between cursor-pointer select-none accordion-toggle">
+          <div class="flex items-center gap-3">
+            <div class="h-11 w-11 rounded-xl bg-brand-600/10 text-brand-700 dark:text-brand-300 grid place-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M7 4v6M20 13H4l4 7h8l4-7Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold">Assessoria & Varejo</h3>
+              <p class="text-sm text-slate-500">Tradução clara para decisões práticas.</p>
+            </div>
+          </div>
+          <span class="chev text-slate-500">＋</span>
+        </header>
+        <div class="accordion-content mt-4 text-slate-600 dark:text-slate-300">
+          <ul class="space-y-2 text-sm">
+            <li>• Guias rápidos (custos, prazos, riscos).</li>
+            <li>• Comparativos Brasil vs. exterior (execução e taxas).</li>
+            <li>• Checklist de tomada de decisão por objetivo.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- P2 -->
+      <article class="accordion rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+        <header class="flex items-center justify-between cursor-pointer select-none accordion-toggle">
+          <div class="flex items-center gap-3">
+            <div class="h-11 w-11 rounded-xl bg-brand-600/10 text-brand-700 dark:text-brand-300 grid place-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M12 3v18M8 21l8-18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold">Asset Allocation</h3>
+              <p class="text-sm text-slate-500">Macro, tático e quant quando agrega.</p>
+            </div>
+          </div>
+          <span class="chev text-slate-500">＋</span>
+        </header>
+        <div class="accordion-content mt-4 text-slate-600 dark:text-slate-300">
+          <ul class="space-y-2 text-sm">
+            <li>• Leituras macro em 3 pontos e implicações.</li>
+            <li>• Pesos sugeridos por regime (educativo).</li>
+            <li>• Regras simples de rebalanceamento.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- P3 -->
+      <article class="accordion rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+        <header class="flex items-center justify-between cursor-pointer select-none accordion-toggle">
+          <div class="flex items-center gap-3">
+            <div class="h-11 w-11 rounded-xl bg-brand-600/10 text-brand-700 dark:text-brand-300 grid place-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.77 5.82 22 7 14.15l-5-4.88 6.91-1.01L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold">Offshore & Trusts</h3>
+              <p class="text-sm text-slate-500">Estruturas, custos e boas práticas.</p>
+            </div>
+          </div>
+          <span class="chev text-slate-500">＋</span>
+        </header>
+        <div class="accordion-content mt-4 text-slate-600 dark:text-slate-300">
+          <ul class="space-y-2 text-sm">
+            <li>• Modelos de estruturas (educativo, sem execução).</li>
+            <li>• Custos/canais e pontos de atenção.</li>
+            <li>• Integração com objetivos patrimoniais.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXEMPLOS / “CASES” -->
+  <section class="py-12 bg-white/60 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-end justify-between gap-6 mb-6">
+        <h2 class="font-display text-3xl sm:text-4xl">Exemplos práticos</h2>
+        <a href="home.html#insights" class="text-sm hover:underline">Ver mais nos Insights</a>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900">
+          <div class="text-xs uppercase tracking-widest text-brand-700 dark:text-brand-400">Varejo</div>
+          <h3 class="mt-2 font-semibold">Checklist de primeira alocação global</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Passo a passo para começar simples, com custos sob controle.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900">
+          <div class="text-xs uppercase tracking-widest text-brand-700 dark:text-brand-400">Asset</div>
+          <h3 class="mt-2 font-semibold">Nota macro em 3 pontos</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Regime de mercado, implicações e pesos educativos.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900">
+          <div class="text-xs uppercase tracking-widest text-brand-700 dark:text-brand-400">Offshore</div>
+          <h3 class="mt-2 font-semibold">Mapa de estruturas e custos</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Visão de modelos, prós/cons e boas práticas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 sm:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="font-display text-3xl sm:text-4xl">Perguntas frequentes</h2>
+      <div class="mt-6 space-y-4">
+        <details class="rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+          <summary class="cursor-pointer font-medium">O conteúdo é recomendação de investimento?</summary>
+          <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm">Não. Todo material é educativo e informativo, sem recomendação individualizada.</p>
+        </details>
+        <details class="rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+          <summary class="cursor-pointer font-medium">Vocês executam estruturas offshore?</summary>
+          <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm">Não. Explicamos modelos e boas práticas; execução exige consultoria jurídica/fiscal apropriada.</p>
+        </details>
+        <details class="rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+          <summary class="cursor-pointer font-medium">Com que frequência os conteúdos são atualizados?</summary>
+          <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm">Publicamos insights regularmente e concentramos uma visão quinzenal no Radar RPV.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-14 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h3 class="font-display text-3xl sm:text-4xl">Quer acompanhar nossa visão?</h3>
+      <p class="mt-3 text-slate-600 dark:text-slate-300">Assine o Radar RPV para receber a síntese quinzenal com macro, tático e uma nota offshore.</p>
+      <a href="home.html#newsletter" class="mt-6 inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-brand-700 hover:bg-brand-600 text-white shadow-soft">
+        Assinar newsletter
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER (padronizado) -->
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="text-lg font-semibold">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 max-w-md">
+            Conteúdo institucional e prático sobre alocação global, oportunidades internacionais e estruturas offshore. Para investidores que buscam clareza e execução.
+          </p>
+        </div>
+        <div>
+          <div class="font-semibold">Mapa do site</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="hover:underline" href="home.html">Home</a></li>
+            <li><a class="hover:underline" href="sobre.html">Sobre Nós</a></li>
+            <li><a class="hover:underline" href="pilares.html">Pilares</a></li>
+            <li><a class="hover:underline" href="newsletter.html">Newsletter</a></li>
+            <li><a class="hover:underline" href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold">Legal</div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            O conteúdo deste site é exclusivamente educativo e informativo, não constituindo recomendação de investimento,
+            oferta de valores mobiliários, consultoria ou análise individualizada.
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+        <p>© <span id="year"></span> RPV Global Strategies. Todos os direitos reservados.</p>
+        <a class="hover:underline" href="politica-de-privacidade.html">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+
+    // Toggle tema
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle?.addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Acordeões
+    document.querySelectorAll('.accordion').forEach(acc => {
+      const header = acc.querySelector('.accordion-toggle');
+      header.addEventListener('click', () => {
+        const open = acc.classList.toggle('open');
+        const icon = acc.querySelector('.chev');
+        if (icon) icon.textContent = open ? '–' : '＋';
+      });
+    });
+
+    // Ano no footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

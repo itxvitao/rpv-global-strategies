@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Política de Privacidade — RPV Global Strategies</title>
+  <meta name="description" content="Política de Privacidade da RPV Global Strategies conforme a LGPD. Saiba quais dados coletamos, bases legais, direitos do titular e como exercê-los." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            display: ['Playfair Display', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            brand: {
+              50:'#f1f5ff',100:'#e6eeff',200:'#c6d9ff',300:'#9dbaff',400:'#6d91ff',
+              500:'#436cff',600:'#2c4fe0',700:'#213bb3',800:'#1b2f8c',900:'#16276f'
+            },
+            gold: {400:'#c8a960',500:'#b8943b'}
+          },
+          boxShadow: { soft:'0 8px 30px rgba(2, 6, 23, 0.08)'}
+        }
+      }
+    }
+  </script>
+
+  <!-- Persistência do tema -->
+  <script>
+    (function () {
+      const s = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (s === 'dark' || (!s && prefersDark)) document.documentElement.classList.add('dark');
+    })();
+  </script>
+
+  <style>
+    body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .toc a { color: inherit; }
+    .toc a:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans">
+  <!-- Top Bar / Contexto -->
+  <div class="w-full bg-brand-900/95 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
+      <p class="opacity-90">RPV Global Strategies — Política de Privacidade</p>
+      <button id="themeToggle" class="rounded-lg px-3 py-1.5 bg-brand-700 hover:bg-brand-600 transition text-sm">Alternar tema</button>
+    </div>
+  </div>
+
+  <!-- NAV (padronizada) -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="home.html" class="flex items-center gap-3 group">
+          <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 ring-2 ring-brand-400/30 shadow-soft grid place-items-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-white">
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20Z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M2 12h20M12 2c3 3.5 3 16.5 0 20M12 2c-3 3.5-3 16.5 0 20" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-lg font-semibold tracking-tight">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+            <div class="text-[12px] uppercase tracking-widest text-slate-500 dark:text-slate-400">Insights • Estratégias • Global</div>
+          </div>
+        </a>
+
+        <!-- Menu desktop -->
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="home.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Início</a>
+          <a href="sobre.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Sobre Nós</a>
+          <a href="pilares.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Pilares</a>
+          <a href="home.html#insights" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Insights</a>
+          <a href="newsletter.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Newsletter</a>
+          <a href="contato.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Contato</a>
+        </nav>
+
+        <!-- Menu mobile -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 border border-slate-300/40 dark:border-slate-700">
+          <span class="sr-only">Abrir menu</span>
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Drawer mobile -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <nav class="px-4 py-3 space-y-2">
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="home.html">Início</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="sobre.html">Sobre Nós</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="pilares.html">Pilares</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="home.html#insights">Insights</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="newsletter.html">Newsletter</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <p class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-brand-700 dark:text-brand-400">
+        <span class="h-2 w-2 bg-gold-500 rounded-full"></span> Transparência & LGPD
+      </p>
+      <h1 class="mt-3 font-display text-4xl sm:text-5xl">Política de Privacidade</h1>
+      <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">Como tratamos seus dados pessoais quando você navega no site, assina a newsletter ou entra em contato.</p>
+      <p class="mt-3 text-sm text-slate-500">Atualizada em <span id="lastUpdated">13/08/2025</span></p>
+    </div>
+  </section>
+
+  <!-- SUMÁRIO -->
+  <section class="py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="toc text-sm text-slate-600 dark:text-slate-300">
+        <ol class="list-decimal ml-5 space-y-2">
+          <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#dados-coletados">Quais dados coletamos</a></li>
+          <li><a href="#finalidades-bases">Finalidades e bases legais</a></li>
+          <li><a href="#cookies">Cookies e tecnologias similares</a></li>
+          <li><a href="#compartilhamento">Compartilhamento e operadores</a></li>
+          <li><a href="#transferencia">Transferências internacionais</a></li>
+          <li><a href="#retencao">Retenção e descarte</a></li>
+          <li><a href="#seguranca">Segurança da informação</a></li>
+          <li><a href="#direitos">Seus direitos (LGPD)</a></li>
+          <li><a href="#contato-lgpd">Contato do controlador / DPO</a></li>
+          <li><a href="#atualizacoes">Atualizações desta política</a></li>
+          <li><a href="#aviso-juridico">Aviso jurídico</a></li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO -->
+  <main class="pb-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-12">
+
+      <section id="quem-somos">
+        <h2 class="font-display text-2xl">1) Quem somos</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          A <strong>RPV Global Strategies</strong> é um projeto de conteúdo educativo sobre mercados globais, alocação e estruturas internacionais. Nosso site é informativo e não presta consultoria individualizada ou serviços regulados.
+        </p>
+      </section>
+
+      <section id="dados-coletados">
+        <h2 class="font-display text-2xl">2) Quais dados coletamos</h2>
+        <div class="mt-3 space-y-4 text-slate-600 dark:text-slate-300">
+          <h3 class="font-semibold">2.1 Dados fornecidos diretamente por você</h3>
+          <ul class="list-disc ml-5">
+            <li><strong>Newsletter:</strong> nome (opcional) e e‑mail.</li>
+            <li><strong>Formulário de contato:</strong> nome, e‑mail, assunto e mensagem.</li>
+            <li><strong>Campos anti‑spam (honeypot):</strong> campos ocultos para prevenir robôs.</li>
+          </ul>
+
+          <h3 class="font-semibold mt-4">2.2 Dados coletados automaticamente</h3>
+          <ul class="list-disc ml-5">
+            <li><strong>Logs técnicos:</strong> IP mascarado/abreviado, data/hora, user‑agent, páginas acessadas (para segurança e métricas básicas).</li>
+            <li><strong>Preferência de tema:</strong> salvamos apenas a escolha <em>claro/escuro</em> no seu navegador (localStorage).</li>
+            <li><strong>Cookies essenciais:</strong> mínimos para funcionamento do site e formulários. Não usamos cookies de perfilamento por padrão.</li>
+          </ul>
+          <p class="text-sm text-slate-500 mt-2">Se adicionarmos analytics/marketing no futuro, atualizaremos esta política e pediremos o seu consentimento quando aplicável.</p>
+        </div>
+      </section>
+
+      <section id="finalidades-bases">
+        <h2 class="font-display text-2xl">3) Finalidades e bases legais</h2>
+        <div class="mt-3 text-slate-600 dark:text-slate-300">
+          <ul class="list-disc ml-5 space-y-2">
+            <li><strong>Envio da newsletter:</strong> consentimento do titular (art. 7º, I, LGPD).</li>
+            <li><strong>Resposta a mensagens de contato:</strong> procedimentos preliminares a eventual contrato e/ou legítimo interesse em atender a solicitações (art. 7º, V e IX).</li>
+            <li><strong>Segurança, prevenção a fraudes e melhoria do site:</strong> legítimo interesse (art. 7º, IX).</li>
+            <li><strong>Cumprimento de obrigações legais/regulatórias:</strong> obrigação legal (art. 7º, II), quando aplicável.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="cookies">
+        <h2 class="font-display text-2xl">4) Cookies e tecnologias similares</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Usamos cookies essenciais e armazenamento local apenas para o funcionamento do site (ex.: preferência de tema). Você pode gerenciá‑los nas configurações do navegador.
+        </p>
+      </section>
+
+      <section id="compartilhamento">
+        <h2 class="font-display text-2xl">5) Compartilhamento e operadores</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Podemos operar com terceiros que tratam dados em nosso nome (“operadores”), estritamente para as finalidades descritas:
+        </p>
+        <ul class="list-disc ml-5 mt-2 text-slate-600 dark:text-slate-300">
+          <li><strong>Hospedagem estática:</strong> GitHub Pages (GitHub, Inc.).</li>
+          <li><strong>Formulários:</strong> serviço de formulários (ex.: Formspree) para receber mensagens/inscrições.</li>
+          <li><strong>E‑mail marketing:</strong> plataforma de newsletter (ex.: Beehiiv, Substack, Mailchimp) para envio e gestão de assinantes.</li>
+        </ul>
+        <p class="text-sm text-slate-500 mt-2">Esses provedores podem estar localizados fora do Brasil. Mantemos apenas os dados mínimos necessários e firmamos termos padrão quando disponíveis.</p>
+      </section>
+
+      <section id="transferencia">
+        <h2 class="font-display text-2xl">6) Transferências internacionais</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Como utilizamos serviços em nuvem, seus dados podem ser armazenados/transferidos para outros países. Adotamos salvaguardas compatíveis com a LGPD, como cláusulas contratuais e provedores com padrões reconhecidos de proteção de dados.
+        </p>
+      </section>
+
+      <section id="retencao">
+        <h2 class="font-display text-2xl">7) Retenção e descarte</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Guardamos os dados pelo tempo necessário às finalidades desta política ou para cumprir obrigações legais. Ao término, eliminamos ou anonimizamos conforme a LGPD.
+        </p>
+      </section>
+
+      <section id="seguranca">
+        <h2 class="font-display text-2xl">8) Segurança da informação</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Empregamos medidas técnicas e organizacionais razoáveis (criptografia em repouso/trânsito dos provedores, controle de acesso e logs). Nenhum ambiente é 100% seguro; em caso de incidente com risco relevante, adotaremos as providências legais cabíveis.
+        </p>
+      </section>
+
+      <section id="direitos">
+        <h2 class="font-display text-2xl">9) Seus direitos (LGPD)</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Você pode exercer, nos termos da LGPD, entre outros: confirmação de tratamento; acesso; correção; anonimização, bloqueio ou eliminação; portabilidade; informação sobre compartilhamento; revogação do consentimento; oposição a tratamento irregular; revisão de decisões automatizadas (quando houver).
+        </p>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Para exercer seus direitos, envie uma solicitação conforme indicado em <a class="underline" href="#contato-lgpd">Contato do controlador / DPO</a>. Responderemos dentro dos prazos legais.
+        </p>
+        <div class="mt-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold">Solicitar seus dados rapidamente</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">
+            Envie um e‑mail com o assunto <em>“Solicitação LGPD”</em> para <a class="underline" href="mailto:contato@rpvglobal.com.br?subject=Solicita%C3%A7%C3%A3o%20LGPD">contato@rpvglobal.com.br</a> informando seu e‑mail cadastrado e o pedido (ex.: acesso ou exclusão).
+          </p>
+        </div>
+      </section>
+
+      <section id="contato-lgpd">
+        <h2 class="font-display text-2xl">10) Contato do controlador / DPO</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          <strong>Controlador:</strong> RPV Global Strategies<br/>
+          <strong>E‑mail:</strong> <a class="underline" href="mailto:contato@rpvglobal.com.br">contato@rpvglobal.com.br</a><br/>
+          <strong>Encarregado (DPO):</strong> Vyctor Valmorbida da Silva — <a class="underline" href="mailto:dpo@rpvglobal.com.br">dpo@rpvglobal.com.br</a>
+        </p>
+      </section>
+
+      <section id="atualizacoes">
+        <h2 class="font-display text-2xl">11) Atualizações desta política</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Podemos atualizar esta política a qualquer momento para refletir mudanças de operação ou leis aplicáveis. A data de “Última atualização” será ajustada no topo desta página e, quando necessário, solicitaremos novo consentimento.
+        </p>
+      </section>
+
+      <section id="aviso-juridico">
+        <h2 class="font-display text-2xl">12) Aviso jurídico</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Este documento é informativo e não constitui aconselhamento jurídico. Para orientações específicas, consulte um advogado especializado em proteção de dados.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER (padronizado) -->
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="text-lg font-semibold">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 max-w-md">
+            Conteúdo institucional e prático sobre alocação global, oportunidades internacionais e estruturas offshore. Para investidores que buscam clareza e execução.
+          </p>
+        </div>
+        <div>
+          <div class="font-semibold">Mapa do site</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="hover:underline" href="home.html#insights">Insights</a></li>
+            <li><a class="hover:underline" href="sobre.html">Sobre Nós</a></li>
+            <li><a class="hover:underline" href="pilares.html">Pilares</a></li>
+            <li><a class="hover:underline" href="newsletter.html">Newsletter</a></li>
+            <li><a class="hover:underline" href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold">Legal</div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            O conteúdo deste site é exclusivamente educativo e informativo, não constituindo recomendação de investimento,
+            oferta de valores mobiliários, consultoria ou análise individualizada.
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+        <p>© <span id="year"></span> RPV Global Strategies. Todos os direitos reservados.</p>
+        <a class="hover:underline" href="politica-de-privacidade.html">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+
+    // Toggle tema
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle?.addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Datas
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Se quiser setar manualmente, edite o conteúdo do span no HTML.
+    // Aqui deixo automático para hoje:
+    const d = new Date();
+    const dd = String(d.getDate()).padStart(2,'0');
+    const mm = String(d.getMonth()+1).padStart(2,'0');
+    const yyyy = d.getFullYear();
+    document.getElementById('lastUpdated').textContent = `${dd}/${mm}/${yyyy}`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Newsletter — RPV Global Strategies</title>
+  <meta name="description" content="Assine a Newsletter da RPV Global Strategies e receba leituras objetivas sobre macro, alocação global e estruturas internacionais. Sem spam.">
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'], display: ['Playfair Display','ui-serif','Georgia'] },
+          colors: {
+            brand: {
+              50:'#f1f5ff',100:'#e6eeff',200:'#c6d9ff',300:'#9dbaff',400:'#6d91ff',
+              500:'#436cff',600:'#2c4fe0',700:'#213bb3',800:'#1b2f8c',900:'#16276f'
+            },
+            gold:{400:'#c8a960',500:'#b8943b'}
+          },
+          boxShadow: { soft:'0 8px 30px rgba(2,6,23,0.08)' },
+          keyframes:{
+            aurora:{ '0%,100%':{transform:'translateY(-5%) translateX(-5%)'},
+                     '50%':{transform:'translateY(5%) translateX(5%)'}},
+            floaty:{ '0%,100%':{transform:'translateY(0)'},
+                     '50%':{transform:'translateY(-8px)'}},
+            shine:{ '0%':{backgroundPosition:'0% 50%'}, '100%':{backgroundPosition:'100% 50%'}},
+            fadeUp:{ '0%':{opacity:0,transform:'translateY(16px) scale(.98)'}, '100%':{opacity:1,transform:'translateY(0) scale(1)'}}
+          },
+          animation:{
+            aurora:'aurora 16s ease-in-out infinite',
+            floaty:'floaty 6s ease-in-out infinite',
+            shine:'shine 4s linear infinite',
+            fadeUp:'fadeUp .6s ease-out both'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tema persistente -->
+  <script>
+    (function(){
+      const s = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (s==='dark'||(!s&&prefersDark)) document.documentElement.classList.add('dark');
+    })();
+  </script>
+
+  <style>
+    body{ text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    .reveal{ opacity:0; transform: translateY(16px) scale(.98); }
+    .reveal.show{ opacity:1; transform:none; transition:opacity .7s ease, transform .7s ease; }
+    .glass{ backdrop-filter:blur(10px); }
+    .grad-cta{ background:linear-gradient(90deg, rgba(67,108,255,.12), rgba(200,169,96,.12)); }
+    .badge{ border:1px solid rgba(148,163,184,.3); }
+    .shimmer {
+      background: linear-gradient(120deg, rgba(255,255,255,.08), rgba(255,255,255,.30), rgba(255,255,255,.08));
+      background-size: 200% 100%;
+      animation: shine 3s linear infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans">
+
+  <!-- Top Bar / Contexto -->
+  <div class="w-full bg-brand-900/95 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
+      <p class="opacity-90">RPV Global Strategies — Newsletter</p>
+      <button id="themeToggle" class="rounded-lg px-3 py-1.5 bg-brand-700 hover:bg-brand-600 transition text-sm">Alternar tema</button>
+    </div>
+  </div>
+
+  <!-- NAV (padronizada) -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="home.html" class="flex items-center gap-3 group">
+          <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 ring-2 ring-brand-400/30 shadow-soft grid place-items-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-white">
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20Z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M2 12h20M12 2c3 3.5 3 16.5 0 20M12 2c-3 3.5-3 16.5 0 20" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-lg font-semibold tracking-tight">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+            <div class="text-[12px] uppercase tracking-widest text-slate-500 dark:text-slate-400">Insights • Estratégias • Global</div>
+          </div>
+        </a>
+        <!-- Menu desktop -->
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="home.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Início</a>
+          <a href="sobre.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Sobre Nós</a>
+          <a href="pilares.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Pilares</a>
+          <a href="home.html#insights" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Insights</a>
+          <a href="newsletter.html" class="text-sm text-brand-700 dark:text-brand-400 font-medium">Newsletter</a>
+          <a href="contato.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Contato</a>
+        </nav>
+        <!-- Menu mobile -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 border border-slate-300/40 dark:border-slate-700">
+          <span class="sr-only">Abrir menu</span>
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Drawer mobile -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <nav class="px-4 py-3 space-y-2">
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="home.html">Início</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="sobre.html">Sobre Nós</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="pilares.html">Pilares</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="home.html#insights">Insights</a>
+        <a class="block px-3 py-2 rounded-lg bg-brand-600/10 text-brand-800 dark:text-brand-200" href="newsletter.html">Newsletter</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO com Aurora animada -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute -inset-40 rounded-[100%] bg-gradient-to-tr from-brand-700/40 via-gold-500/30 to-brand-900/40 blur-3xl animate-aurora"></div>
+      <div class="absolute -inset-40 rounded-[100%] bg-gradient-to-tr from-brand-400/30 via-brand-700/20 to-gold-500/30 blur-3xl animate-aurora" style="animation-delay:.8s"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center">
+      <p class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-brand-700 dark:text-brand-400">
+        <span class="h-2 w-2 bg-gold-500 rounded-full"></span> Radar RPV — quinzenal
+      </p>
+      <h1 class="mt-3 font-display text-4xl sm:text-5xl leading-tight">Receba <span class="text-brand-700 dark:text-brand-400">insights e estratégias</span> direto no seu e‑mail</h1>
+      <p class="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">Macro sem ruído, tática de alocação e uma nota offshore — objetivo, institucional e aplicável.</p>
+
+      <!-- Formulário principal -->
+      <form action="https://formspree.io/f/SEU_ENDPOINT" method="POST" class="mt-8 max-w-xl mx-auto" onsubmit="newsletterSubmit(event)">
+        <div class="flex flex-col sm:flex-row gap-3 items-stretch">
+          <input name="nome" type="text" placeholder="Seu nome" class="flex-1 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-950 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600">
+          <input name="email" type="email" required placeholder="voce@exemplo.com" class="flex-1 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-950 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600">
+          <button type="submit" class="rounded-xl px-5 py-3 bg-brand-700 hover:bg-brand-600 text-white shadow-soft">Quero receber</button>
+        </div>
+        <input type="text" name="_gotcha" style="display:none">
+        <p id="nlStatus" class="mt-3 text-sm text-slate-500">Sem spam. Você pode cancelar a qualquer momento.</p>
+      </form>
+
+      <!-- Badges de valor -->
+      <div class="mt-6 flex flex-wrap gap-2 justify-center text-xs">
+        <span class="badge px-3 py-1 rounded-full">Leitura objetiva</span>
+        <span class="badge px-3 py-1 rounded-full">Comparativos de custos</span>
+        <span class="badge px-3 py-1 rounded-full">Conteúdo institucional</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS + MOCKUP DO E-MAIL -->
+  <section class="py-12 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
+      <div class="reveal">
+        <h2 class="font-display text-3xl sm:text-4xl">O que você vai receber</h2>
+        <ul class="mt-6 space-y-4 text-slate-600 dark:text-slate-300">
+          <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-brand-600"></span><span><strong>Nota Macro em 3 pontos</strong> — regime de mercado e implicações para portfólio.</span></li>
+          <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-brand-600"></span><span><strong>Tática de Alocação</strong> — pesos educativos e critérios de rebalanceamento.</span></li>
+          <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-brand-600"></span><span><strong>Insight Offshore</strong> — custos, canais e boas práticas (sem execução jurídica/fiscal).</span></li>
+        </ul>
+        <div class="mt-6 p-4 rounded-xl grad-cta text-sm text-slate-700 dark:text-slate-200 border border-slate-200/60 dark:border-slate-800/60">
+          <strong>Transparência:</strong> conteúdo educativo e informativo; não é recomendação individualizada.
+        </div>
+      </div>
+
+      <!-- Mockup -->
+      <div class="reveal">
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 shadow-soft glass overflow-hidden">
+          <div class="px-5 py-3 border-b border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between">
+            <div class="text-sm font-medium">Radar RPV — Edição 07</div>
+            <div class="flex items-center gap-1 opacity-60">
+              <span class="h-2 w-2 rounded-full bg-brand-600 animate-floaty"></span>
+              <span class="h-2 w-2 rounded-full bg-gold-500 animate-floaty" style="animation-delay:.2s"></span>
+              <span class="h-2 w-2 rounded-full bg-brand-800 animate-floaty" style="animation-delay:.4s"></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="text-xs uppercase tracking-widest text-brand-700 dark:text-brand-400">Macro</div>
+            <h3 class="mt-1 text-lg font-semibold">Curva de juros global: onde está o prêmio de risco?</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Síntese sem ruído e implicações para prazos e moedas.</p>
+
+            <div class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+              <div class="text-xs uppercase tracking-widest text-slate-500">Tática</div>
+              <p class="text-sm mt-1">Regras simples de pesos e critérios de rebalanceamento para carteiras globais.</p>
+            </div>
+
+            <div class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+              <div class="text-xs uppercase tracking-widest text-slate-500">Offshore</div>
+              <p class="text-sm mt-1">Custos e pontos de atenção em contas internacionais — o que muda na prática.</p>
+            </div>
+
+            <div class="mt-5 text-right">
+              <a href="#cta" class="inline-flex items-center gap-2 text-sm rounded-xl px-4 py-2 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Ver exemplo completo
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 text-xs text-slate-500">*Mockup ilustrativo do e‑mail.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTRICAS / PROVA SOCIAL -->
+  <section class="py-10 sm:py-16 bg-white/60 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-3 gap-6 text-center">
+      <div class="reveal rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <div class="text-3xl font-semibold"><span class="counter" data-target="3">0</span> frentes</div>
+        <div class="text-sm text-slate-500 mt-1">varejo • asset • offshore</div>
+      </div>
+      <div class="reveal rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <div class="text-3xl font-semibold"><span class="counter" data-target="100">0</span>% educativo</div>
+        <div class="text-sm text-slate-500 mt-1">sem recomendação individual</div>
+      </div>
+      <div class="reveal rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <div class="text-3xl font-semibold"><span class="counter" data-target="14">0</span> dias</div>
+        <div class="text-sm text-slate-500 mt-1">ritmo de atualização</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS (carrossel simples) -->
+  <section class="py-12 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-display text-3xl sm:text-4xl">O que leitores dizem</h2>
+      <div class="mt-8 relative">
+        <div id="carousel" class="overflow-hidden">
+          <div id="slides" class="flex transition-transform duration-500">
+            <div class="min-w-full px-2">
+              <div class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                <p class="text-lg">“A leitura mais objetiva da semana. Sem hype, só o que mexe na carteira.”</p>
+                <div class="mt-3 text-sm text-slate-500">— Maria, empresária</div>
+              </div>
+            </div>
+            <div class="min-w-full px-2">
+              <div class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                <p class="text-lg">“Gostei da parte offshore: prático e honesto sobre custos e compliance.”</p>
+                <div class="mt-3 text-sm text-slate-500">— João, médico</div>
+              </div>
+            </div>
+            <div class="min-w-full px-2">
+              <div class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                <p class="text-lg">“As regras de rebalance me deram um norte claro. Parabéns!”</p>
+                <div class="mt-3 text-sm text-slate-500">— Ana, advogada</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Controles -->
+        <div class="mt-6 flex items-center justify-center gap-3">
+          <button class="ctrl h-2.5 w-2.5 rounded-full bg-slate-300 dark:bg-slate-700" data-index="0" aria-label="slide 1"></button>
+          <button class="ctrl h-2.5 w-2.5 rounded-full bg-slate-300/70 dark:bg-slate-700/70" data-index="1" aria-label="slide 2"></button>
+          <button class="ctrl h-2.5 w-2.5 rounded-full bg-slate-300/70 dark:bg-slate-700/70" data-index="2" aria-label="slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ curto -->
+  <section class="py-10 sm:py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="font-display text-3xl sm:text-4xl">Perguntas frequentes</h2>
+      <div class="mt-6 grid md:grid-cols-3 gap-4">
+        <details class="reveal rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+          <summary class="cursor-pointer font-medium">É recomendação de investimento?</summary>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Não. É conteúdo educativo e informativo, sem orientação individual.</p>
+        </details>
+        <details class="reveal rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+          <summary class="cursor-pointer font-medium">Com que frequência?</summary>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Edição quinzenal. Edições extras apenas quando fizer sentido.</p>
+        </details>
+        <details class="reveal rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+          <summary class="cursor-pointer font-medium">Posso cancelar?</summary>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Claro. Cada e‑mail tem um link de descadastro.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta" class="py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center reveal">
+      <h3 class="font-display text-3xl sm:text-4xl">Assine e receba a próxima edição</h3>
+      <p class="mt-3 text-slate-600 dark:text-slate-300">Coloque seu e‑mail e fique por dentro — sem promessas fáceis, só leitura de quem vive o mercado.</p>
+      <form action="https://formspree.io/f/SEU_ENDPOINT" method="POST" class="mt-6 max-w-xl mx-auto" onsubmit="newsletterSubmit(event)">
+        <div class="flex flex-col sm:flex-row gap-3 items-stretch">
+          <input name="email" type="email" required placeholder="voce@exemplo.com" class="flex-1 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-950 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600">
+          <button type="submit" class="rounded-xl px-5 py-3 bg-brand-700 hover:bg-brand-600 text-white shadow-soft shimmer">Quero receber</button>
+        </div>
+        <input type="text" name="_gotcha" style="display:none">
+        <p class="mt-3 text-sm text-slate-500">Privacidade respeitada. Nada de spam.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER (padronizado) -->
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="text-lg font-semibold">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 max-w-md">
+            Conteúdo institucional e prático sobre alocação global, oportunidades internacionais e estruturas offshore. Para investidores que buscam clareza e execução.
+          </p>
+        </div>
+        <div>
+          <div class="font-semibold">Mapa do site</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="hover:underline" href="home.html">Home</a></li>
+            <li><a class="hover:underline" href="sobre.html">Sobre Nós</a></li>
+            <li><a class="hover:underline" href="pilares.html">Pilares</a></li>
+            <li><a class="hover:underline" href="newsletter.html">Newsletter</a></li>
+            <li><a class="hover:underline" href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold">Legal</div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            O conteúdo deste site é exclusivamente educativo e informativo, não constituindo recomendação de investimento,
+            oferta de valores mobiliários, consultoria ou análise individualizada.
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+        <p>© <span id="year"></span> RPV Global Strategies. Todos os direitos reservados.</p>
+        <a class="hover:underline" href="politica-de-privacidade.html">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+
+    // Toggle tema
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle?.addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Intersection reveal
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+    }, {threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Contadores
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(c=>{
+      const target = +c.dataset.target;
+      let cur = 0; const step = Math.max(1, Math.ceil(target/60));
+      const tick = ()=>{ cur += step; if(cur>=target){cur=target; } c.textContent = cur; if(cur<target) requestAnimationFrame(tick); };
+      tick();
+    });
+
+    // Carrossel depoimentos
+    const slides = document.getElementById('slides');
+    const ctrls = document.querySelectorAll('.ctrl');
+    let current = 0; const n = ctrls.length;
+    function go(i){ current = i; slides.style.transform = `translateX(-${i*100}%)`; ctrls.forEach((b,ix)=>b.style.opacity = ix===i? '1':'0.6'); }
+    ctrls.forEach(b=> b.addEventListener('click', ()=>go(+b.dataset.index)));
+    setInterval(()=>go((current+1)%n), 6000); go(0);
+
+    // Formulários newsletter
+    async function newsletterSubmit(e){
+      e.preventDefault();
+      const form = e.target, status = document.getElementById('nlStatus') || form.querySelector('.nlStatus');
+      if(status) status.textContent = 'Enviando...';
+      try{
+        const resp = await fetch(form.action || '#', { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form) });
+        if(resp.ok){ if(status) status.textContent = 'Inscrição confirmada! Verifique seu e‑mail.'; form.reset(); }
+        else{ if(status) status.textContent = 'Não foi possível inscrever agora. Tente novamente.'; }
+      }catch(err){ if(status) status.textContent = 'Falha de rede. Verifique sua conexão.'; }
+    }
+
+    // Ano no footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

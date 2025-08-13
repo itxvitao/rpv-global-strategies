@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Contato — RPV Global Strategies</title>
+  <meta name="description" content="Fale com a RPV Global Strategies: parcerias, imprensa e convites. Conteúdo institucional e educativo para investidores com visão global." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            display: ['Playfair Display', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            brand: {
+              50:  '#f1f5ff',
+              100: '#e6eeff',
+              200: '#c6d9ff',
+              300: '#9dbaff',
+              400: '#6d91ff',
+              500: '#436cff',
+              600: '#2c4fe0',
+              700: '#213bb3',
+              800: '#1b2f8c',
+              900: '#16276f'
+            },
+            gold: { 400: '#c8a960', 500: '#b8943b' }
+          },
+          boxShadow: { soft: '0 8px 30px rgba(2, 6, 23, 0.08)' },
+          keyframes: {
+            fadeUp: { '0%':{opacity:0, transform:'translateY(16px) scale(.98)'}, '100%':{opacity:1, transform:'translateY(0) scale(1)'} },
+            fadeIn: { '0%':{opacity:0}, '100%':{opacity:1} }
+          },
+          animation: {
+            fadeUp: 'fadeUp .6s ease-out both',
+            fadeIn: 'fadeIn .6s ease-out both'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Persistência do tema -->
+  <script>
+    (function () {
+      const s = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (s === 'dark' || (!s && prefersDark)) document.documentElement.classList.add('dark');
+    })();
+  </script>
+
+  <style>
+    body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .reveal { opacity: 0; transform: translateY(16px) scale(.98); }
+    .reveal.show { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
+    .bg-grid {
+      background-image: radial-gradient(rgba(67,108,255,0.08) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+  </style>
+</head>
+
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans">
+
+  <!-- Top Bar / Contexto -->
+  <div class="w-full bg-brand-900/95 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
+      <p class="opacity-90">RPV Global Strategies — Contato</p>
+      <button id="themeToggle" class="rounded-lg px-3 py-1.5 bg-brand-700 hover:bg-brand-600 transition text-sm">Alternar tema</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 ring-2 ring-brand-400/30 shadow-soft grid place-items-center">
+            <!-- Ícone globo minimalista -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-white">
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20Z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M2 12h20M12 2c3 3.5 3 16.5 0 20M12 2c-3 3.5-3 16.5 0 20" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-lg font-semibold tracking-tight">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+            <div class="text-[12px] uppercase tracking-widest text-slate-500 dark:text-slate-400">Insights • Estratégias • Global</div>
+          </div>
+        </a>
+
+        <!-- Menu desktop -->
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="home.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Home</a>
+          <a href="pilares.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Pilares</a>
+          <a href="sobre.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Sobre Nós</a>
+          <a href="#newsletter" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Newsletter</a>
+          <a href="#contato" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Contato</a>
+          <a href="/insights/index.html" class="text-sm inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-brand-700/30 text-brand-800 dark:text-brand-200 hover:bg-brand-600 hover:text-white transition">
+            Entrar no Blog
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </nav>
+
+        <!-- Menu mobile -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 border border-slate-300/40 dark:border-slate-700">
+          <span class="sr-only">Abrir menu</span>
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Drawer mobile -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <nav class="px-4 py-3 space-y-2">
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="home.html">Home</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="pilares.html">Pilares</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="sobre.html">Sobre Nós</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="newsletter.html">Newsletter</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="contato.html">Contato</a>
+        <a class="block px-3 py-2 rounded-lg bg-brand-600/10 text-brand-800 dark:text-brand-200 hover:bg-brand-600/20" href="/insights/index.html">Entrar no Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900 bg-grid"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center">
+      <p class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-brand-700 dark:text-brand-400">
+        <span class="h-2 w-2 bg-gold-500 rounded-full"></span> Estamos a um e‑mail de distância
+      </p>
+      <h1 class="mt-3 font-display text-4xl sm:text-5xl">Fale com a RPV</h1>
+      <p class="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+        Parcerias, imprensa, convites e ideias de conteúdo. Para dúvidas de investimento, lembre: nosso material é educativo.
+      </p>
+    </div>
+  </section>
+
+  <!-- GRID CONTATO -->
+  <section class="py-10 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-5 gap-8 items-start">
+      <!-- Lado esquerdo: cartões de contato -->
+      <div class="lg:col-span-2 space-y-6">
+        <div class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+          <h3 class="text-lg font-semibold">Canais principais</h3>
+          <ul class="mt-3 space-y-2 text-slate-600 dark:text-slate-300 text-sm">
+            <li><strong>E-mail:</strong> contato@rpvglobal.com.br</li>
+            <li><strong>LinkedIn:</strong> <a href="#" class="text-brand-700 dark:text-brand-400 hover:underline">/company/rpv-global</a></li>
+            <li><strong>Newsletter:</strong> assine o <a href="home.html#newsletter" class="text-brand-700 dark:text-brand-400 hover:underline">Radar RPV</a></li>
+          </ul>
+        </div>
+
+        <div class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+          <h3 class="text-lg font-semibold">Assuntos comuns</h3>
+          <ul class="mt-3 grid grid-cols-2 gap-2 text-sm">
+            <li class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/60">Parcerias</li>
+            <li class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/60">Imprensa</li>
+            <li class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/60">Palestras</li>
+            <li class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/60">Workshops</li>
+            <li class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/60">Sugestões de pauta</li>
+            <li class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/60">Dúvidas gerais</li>
+          </ul>
+        </div>
+
+        <div class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+          <h3 class="text-lg font-semibold">Aviso</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            Nosso conteúdo é exclusivamente educativo e informativo; não realizamos recomendação de investimento ou execução de estruturas jurídicas/fiscais.
+          </p>
+        </div>
+      </div>
+
+      <!-- Lado direito: formulário -->
+      <div class="lg:col-span-3">
+        <form action="https://formspree.io/f/SEU_ENDPOINT" method="POST"
+              class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-soft"
+              onsubmit="submitContact(event)">
+          <h3 class="text-xl font-semibold">Envie uma mensagem</h3>
+
+          <div class="mt-6 grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm mb-2" for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" required
+                class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-950 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" />
+            </div>
+            <div>
+              <label class="block text-sm mb-2" for="email">E-mail</label>
+              <input id="email" name="email" type="email" required
+                class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-950 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" />
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <label class="block text-sm mb-2" for="assunto">Assunto</label>
+            <select id="assunto" name="assunto" required
+              class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-950 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600">
+              <option value="" disabled selected>Selecione</option>
+              <option>Parcerias</option>
+              <option>Imprensa</option>
+              <option>Palestras/Workshops</option>
+              <option>Sugestões de pauta</option>
+              <option>Dúvidas gerais</option>
+            </select>
+          </div>
+
+          <div class="mt-4">
+            <label class="block text-sm mb-2" for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required
+              class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-950 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600"></textarea>
+          </div>
+
+          <!-- Honeypot -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="mt-6 flex items-center gap-4">
+            <button type="submit" class="rounded-xl px-5 py-3 bg-brand-700 hover:bg-brand-600 text-white shadow-soft">Enviar</button>
+            <span id="contactStatus" class="text-sm text-slate-500"></span>
+          </div>
+        </form>
+
+        <!-- Bloco "Como chegar / mapa" (opcional, decorativo) -->
+        <div class="reveal mt-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+          <h4 class="text-lg font-semibold">Onde estamos</h4>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Operamos de forma digital, com base no Brasil. Reuniões on-line por padrão.</p>
+          <div class="mt-4 aspect-[16/9] w-full rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+            <!-- Mapa ilustrativo sem API (imagem pública genérica ou padrão de gradiente) -->
+            <div class="w-full h-full bg-gradient-to-br from-brand-600/15 to-brand-900/10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Newsletter -->
+  <section class="py-14 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center reveal">
+      <h3 class="font-display text-3xl sm:text-4xl">Acompanhe nossa visão</h3>
+      <p class="mt-3 text-slate-600 dark:text-slate-300">Assine o Radar RPV e receba a síntese quinzenal com macro, tático e uma nota offshore.</p>
+      <a href="home.html#newsletter" class="mt-6 inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-brand-700 hover:bg-brand-600 text-white shadow-soft">
+        Assinar newsletter
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER (padronizado) -->
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="text-lg font-semibold">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 max-w-md">
+            Conteúdo institucional e prático sobre alocação global, oportunidades internacionais e estruturas offshore. Para investidores que buscam clareza e execução.
+          </p>
+        </div>
+        <div>
+          <div class="font-semibold">Mapa do site</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="hover:underline" href="home.html">Home</a></li>
+            <li><a class="hover:underline" href="sobre.html">Sobre Nós</a></li>
+            <li><a class="hover:underline" href="pilares.html">Pilares</a></li>
+            <li><a class="hover:underline" href="newsletter.html">Newsletter</a></li>
+            <li><a class="hover:underline" href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold">Legal</div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            O conteúdo deste site é exclusivamente educativo e informativo, não constituindo recomendação de investimento,
+            oferta de valores mobiliários, consultoria ou análise individualizada.
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+        <p>© <span id="year"></span> RPV Global Strategies. Todos os direitos reservados.</p>
+        <a class="hover:underline" href="politica-de-privacidade.html">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+
+    // Toggle tema
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle?.addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Animar elementos quando entram em viewport
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Envio do formulário (sem backend próprio)
+    async function submitContact(e) {
+      // Comentário: remova este handler se usar serviço que exige redirect próprio
+      e.preventDefault();
+      const form = e.target;
+      const status = document.getElementById('contactStatus');
+      status.textContent = 'Enviando...';
+
+      try {
+        const resp = await fetch(form.action || '#', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (resp.ok) {
+          status.textContent = 'Mensagem enviada. Obrigado!';
+          form.reset();
+        } else {
+          status.textContent = 'Não foi possível enviar agora. Tente novamente.';
+        }
+      } catch (err) {
+        status.textContent = 'Falha de rede. Verifique sua conexão e tente novamente.';
+      }
+    }
+
+    // Ano no footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
