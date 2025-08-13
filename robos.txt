@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://itxvitao.github.io/rpvglobalstrategies/sitemap.xml
+Sitemap: https://itxvitao.github.io/rpv-global-strategies/sitemap.xml
