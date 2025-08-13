@@ -10,13 +10,6 @@
   <meta name="theme-color" content="#0B1F3A">
   <link rel="canonical" href="https://itxvitao.github.io/rpv-global-strategies/sobre.html">
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
-  <circle cx='32' cy='32' r='32' fill='%230B1F3A'/>
-  <text x='50%' y='50%' font-size='28' font-family='Montserrat, Arial, sans-serif' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central'>RPV</text>
-  </svg>">
-
   <!-- Open Graph -->
   <meta property="og:title" content="Sobre Nós — RPV Global Strategies">
   <meta property="og:description" content="Conheça os fundadores e a história por trás da RPV Global Strategies.">
@@ -29,6 +22,13 @@
   <meta name="twitter:title" content="Sobre Nós — RPV Global Strategies">
   <meta name="twitter:description" content="História, experiência e visão da RPV Global Strategies.">
   <meta name="twitter:image" content="https://itxvitao.github.io/rpv-global-strategies/assets/social-cover.jpg">
+
+  <!-- Favicon (SVG embutido) -->
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+  <circle cx='32' cy='32' r='32' fill='%230B1F3A'/>
+  <text x='50%' y='50%' font-size='28' font-family='Montserrat, Arial, sans-serif' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central'>RPV</text>
+  </svg>">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,21 +47,24 @@
           },
           colors: {
             brand: {
-              50:  '#f1f5ff',
-              100: '#e6eeff',
-              200: '#c6d9ff',
-              300: '#9dbaff',
-              400: '#6d91ff',
-              500: '#436cff', /* azul petróleo institucional */
-              600: '#2c4fe0',
-              700: '#213bb3',
-              800: '#1b2f8c',
-              900: '#16276f'
+              50:'#f1f5ff',100:'#e6eeff',200:'#c6d9ff',300:'#9dbaff',400:'#6d91ff',
+              500:'#436cff',
+              600:'#2c4fe0',700:'#213bb3',800:'#1b2f8c',900:'#16276f'
             },
-            ink: { 50: '#f8fafc', 900:'#0b1220' },
-            gold: { 400: '#c8a960', 500: '#b8943b' }
+            ink: { 50:'#f8fafc', 900:'#0b1220' },
+            gold:{ 400:'#c8a960', 500:'#b8943b' }
           },
-          boxShadow: { soft: '0 8px 30px rgba(2, 6, 23, 0.08)' }
+          boxShadow: { soft:'0 8px 30px rgba(2,6,23,0.08)', glow:'0 10px 40px rgba(67,108,255,.25)' },
+          keyframes: {
+            aurora: { '0%,100%':{transform:'translate3d(0,0,0) scale(1)'}, '50%':{transform:'translate3d(12%, -8%, 0) scale(1.06)'} },
+            in: { '0%':{opacity:0, transform:'translateY(16px) scale(.98)'}, '100%':{opacity:1, transform:'translateY(0) scale(1)'} },
+            shimmer: { '0%':{backgroundPosition:'200% 0'}, '100%':{backgroundPosition:'-200% 0'} }
+          },
+          animation: {
+            aurora:'aurora 14s ease-in-out infinite',
+            in:'in .7s cubic-bezier(.16,1,.3,1) both',
+            shimmer:'shimmer 2s linear infinite'
+          }
         }
       }
     }
@@ -81,31 +84,29 @@
   </script>
 
   <style>
-    body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body{ text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .bg-grid{ background-image: radial-gradient(rgba(67,108,255,.08) 1px, transparent 1px); background-size: 18px 18px; }
+    .g-border{ position:relative; }
+    .g-border::before{ content:""; position:absolute; inset:-1px; border-radius:16px; padding:1px; background:conic-gradient(from 180deg at 50% 50%,#436cff66,#7bd9b566,#436cff66); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
   </style>
 </head>
 
-
 <body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans">
-  <!-- Top bar -->
-<!-- Top Bar / Aviso de Página -->
-<div class="w-full bg-brand-900/95 text-white text-sm">
+  <!-- Top Bar / Aviso -->
+  <div class="w-full bg-brand-900/95 text-white text-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
       <p class="opacity-90">RPV Global Strategies — Sobre Nós</p>
-      <button id="themeToggle" class="rounded-lg px-3 py-1.5 bg-brand-700 hover:bg-brand-600 transition text-sm">
-        Alternar tema
-      </button>
+      <button id="themeToggle" class="rounded-lg px-3 py-1.5 bg-brand-700 hover:bg-brand-600 transition text-sm">Alternar tema</button>
     </div>
   </div>
-  
-   <!-- NAV -->
-   <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
-        <a href="#" class="flex items-center gap-3 group">
+        <a href="/home.html" class="flex items-center gap-3 group">
           <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 ring-2 ring-brand-400/30 shadow-soft grid place-items-center">
-            <!-- Ícone globo minimalista -->
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-white">
               <path d="M12 2a10 10 0 100 20 10 10 0 000-20Z" stroke="currentColor" stroke-width="1.5"/>
               <path d="M2 12h20M12 2c3 3.5 3 16.5 0 20M12 2c-3 3.5-3 16.5 0 20" stroke="currentColor" stroke-width="1.2" />
@@ -119,11 +120,11 @@
 
         <!-- Menu desktop -->
         <nav class="hidden md:flex items-center gap-7">
-          <a href="home.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Início</a>
-          <a href="pilares.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Pilares</a>
-          <a href="sobre.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Sobre Nós</a>
-          <a href="newsletter.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Newsletter</a>
-          <a href="contato.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Contato</a>
+          <a href="/home.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Início</a>
+          <a href="/pilares.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Pilares</a>
+          <a href="/sobre.html" class="text-sm text-brand-700 dark:text-brand-400">Sobre Nós</a>
+          <a href="/newsletter.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Newsletter</a>
+          <a href="/contato.html" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Contato</a>
           <a href="/insights/index.html" class="text-sm inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-brand-700/30 text-brand-800 dark:text-brand-200 hover:bg-brand-600 hover:text-white transition">
             Entrar no Blog
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -143,20 +144,23 @@
     <!-- Drawer mobile -->
     <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
       <nav class="px-4 py-3 space-y-2">
-        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="#insights">Insights</a>
-        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="#pilares">Pilares</a>
-        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="#sobre">Sobre Nós</a>
-        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="newsletter.html">Newsletter</a>
-        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="#contato">Contato</a>
-        <a class="block px-3 py-2 rounded-lg bg-brand-600/10 text-brand-800 dark:text-brand-200 hover:bg-brand-600/20" href="/insights/index.html">Entrar no Blog</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/home.html">Início</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/pilares.html">Pilares</a>
+        <a class="block px-3 py-2 rounded-lg bg-brand-600/10 text-brand-800 dark:text-brand-200" href="/sobre.html">Sobre Nós</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/newsletter.html">Newsletter</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/contato.html">Contato</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/insights/index.html">Entrar no Blog</a>
       </nav>
     </div>
   </header>
-  
 
   <!-- HERO -->
-  <section class="py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900 bg-grid"></div>
+    <div class="pointer-events-none absolute -inset-x-20 -top-32 h-64 blur-3xl opacity-70">
+      <div class="w-full h-full bg-gradient-to-r from-brand-600/30 via-gold-500/20 to-brand-900/30 rounded-full animate-aurora"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 text-center py-16 sm:py-24">
       <p class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-brand-700 dark:text-brand-400">
         <span class="h-2 w-2 bg-gold-500 rounded-full"></span> Boutique de conteúdo e estratégia
       </p>
@@ -167,113 +171,152 @@
     </div>
   </section>
 
-  <!-- CARDS SÓCIOS -->
+  <!-- EQUIPE / CARDS -->
   <section class="py-10 sm:py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-3 gap-6">
-      <!-- Você (Trust/Offshore) -->
-      <article class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
-        <div class="flex items-center gap-4">
-          <div class="h-16 w-16 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden grid place-items-center text-lg font-semibold">V</div>
-          <div>
-            <h3 class="text-xl font-semibold">Vyctor Valmorbida</h3>
-            <p class="text-sm text-slate-500">Trusts • Holdings • Offshore</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="font-display text-3xl sm:text-4xl mb-6">Quem somos</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Rodrigo -->
+        <article class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft animate-in">
+          <div class="flex items-center gap-4">
+            <div class="h-16 w-16 rounded-full bg-slate-200 dark:bg-slate-800 grid place-items-center text-lg font-semibold">R</div>
+            <div>
+              <h3 class="text-xl font-semibold">Rodrigo Tunnermann</h3>
+              <p class="text-sm text-slate-500">Investor — Time de Alocação (XP)</p>
+            </div>
           </div>
-        </div>
-        <p class="mt-4 text-slate-600 dark:text-slate-300">
-          Atuação em escritório internacional focado em planejamento patrimonial global, com experiência prática em estruturas de preservação e sucessão.
-        </p>
-        <div class="mt-4 flex flex-wrap gap-2 text-xs">
-          <span class="px-3 py-1 rounded-full bg-brand-600/10 text-brand-700 dark:text-brand-300">Planejamento Patrimonial</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Compliance & Custos</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Estruturação Internacional</span>
-        </div>
-      </article>
+          <p class="mt-4 text-slate-600 dark:text-slate-300">
+            Estudante de Direito (FMP). Certificado <strong>Ancord</strong> como assessor de investimentos. Iniciou na <strong>Liberta Investimentos</strong> (XP) e hoje atua como <em>investor</em> no time de alocação, com foco em construção de carteiras, leitura macro e gestão de risco.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-brand-600/10 text-brand-700 dark:text-brand-300">Asset Allocation</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Gestão de Risco</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Valuation & Macro</span>
+          </div>
+        </article>
 
-      <!-- Rodrigo (Investor XP) -->
-      <article class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
-        <div class="flex items-center gap-4">
-          <div class="h-16 w-16 rounded-full bg-slate-200 dark:bg-slate-800 grid place-items-center text-lg font-semibold">R</div>
-          <div>
-            <h3 class="text-xl font-semibold">Rodrigo Tunnermann</h3>
-            <p class="text-sm text-slate-500">Investor — Time de Alocação (XP)</p>
+        <!-- Pedro -->
+        <article class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft animate-in" style="animation-delay:120ms">
+          <div class="flex items-center gap-4">
+            <div class="h-16 w-16 rounded-full bg-slate-200 dark:bg-slate-800 grid place-items-center text-lg font-semibold">P</div>
+            <div>
+              <h3 class="text-xl font-semibold">Pedro Oliveira</h3>
+              <p class="text-sm text-slate-500">Assessor de Investimentos — Argentum (XP)</p>
+            </div>
           </div>
-        </div>
-        <p class="mt-4 text-slate-600 dark:text-slate-300">
-          Vivência em desenho de carteiras e táticas de alocação baseadas em macro, valuation e risco, com execução prática no ecossistema local.
-        </p>
-        <div class="mt-4 flex flex-wrap gap-2 text-xs">
-          <span class="px-3 py-1 rounded-full bg-brand-600/10 text-brand-700 dark:text-brand-300">Asset Allocation</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Gestão de Risco</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Táticas de Mercado</span>
-        </div>
-      </article>
+          <p class="mt-4 text-slate-600 dark:text-slate-300">
+            Estudante de Economia (UniRitter). Atua como <strong>assessor de investimentos</strong> na Argentum Investimentos (XP), traduzindo conjuntura e produtos em decisões práticas para PF e PJ, com foco em adequação de perfil e execução.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-brand-600/10 text-brand-700 dark:text-brand-300">Suitability</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Produtos & Execução</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Relacionamento</span>
+          </div>
+        </article>
 
-      <!-- Pedro (Assessor XP) -->
-      <article class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
-        <div class="flex items-center gap-4">
-          <div class="h-16 w-16 rounded-full bg-slate-200 dark:bg-slate-800 grid place-items-center text-lg font-semibold">P</div>
-          <div>
-            <h3 class="text-xl font-semibold">Pedro Oliveira</h3>
-            <p class="text-sm text-slate-500">Assessor de Investimentos (XP)</p>
+        <!-- Vyctor -->
+        <article class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft animate-in" style="animation-delay:240ms">
+          <div class="flex items-center gap-4">
+            <div class="h-16 w-16 rounded-full bg-slate-200 dark:bg-slate-800 grid place-items-center text-lg font-semibold">V</div>
+            <div>
+              <h3 class="text-xl font-semibold">Vyctor Valmorbida</h3>
+              <p class="text-sm text-slate-500">Asset Manager — Escritório internacional (Wealth)</p>
+            </div>
           </div>
-        </div>
-        <p class="mt-4 text-slate-600 dark:text-slate-300">
-          Atendimento a investidores pessoa física e jurídica, traduzindo conjuntura e produtos em decisões práticas e alinhadas a objetivos.
-        </p>
-        <div class="mt-4 flex flex-wrap gap-2 text-xs">
-          <span class="px-3 py-1 rounded-full bg-brand-600/10 text-brand-700 dark:text-brand-300">Suitability</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Produtos & Execução</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Relacionamento</span>
-        </div>
-      </article>
+          <p class="mt-4 text-slate-600 dark:text-slate-300">
+            Formado em Engenharia de Software. Iniciou no mundo da tecnologia e hoje atua como <strong>asset manager</strong> em escritório internacional, com foco em <em>wealth management</em>, estruturas de <strong>trust</strong>, <strong>holding</strong> e <strong>offshore</strong>, conectando operação e governança.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-brand-600/10 text-brand-700 dark:text-brand-300">Planejamento Patrimonial</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Trusts & Holdings</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Estratégia Offshore</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Acordeões -->
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <details class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5">
+          <summary class="cursor-pointer list-none flex items-center justify-between">
+            <span class="text-sm font-semibold">Formação & Certificações</span>
+            <svg class="h-4 w-4 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </summary>
+          <ul class="mt-3 text-sm text-slate-600 dark:text-slate-300 space-y-2">
+            <li><strong>Rodrigo</strong>: Direito (FMP) • Cert. <strong>Ancord</strong>.</li>
+            <li><strong>Pedro</strong>: Economia (UniRitter) • Atuação como assessor (XP).</li>
+            <li><strong>Vyctor</strong>: Eng. de Software • Asset manager (Wealth, trusts/holdings/offshore).</li>
+          </ul>
+        </details>
+        <details class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5">
+          <summary class="cursor-pointer list-none flex items-center justify-between">
+            <span class="text-sm font-semibold">Especialidades</span>
+            <svg class="h-4 w-4 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </summary>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-brand-600/10 text-brand-700 dark:text-brand-300">Alocação Global</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">ETFs & REITs</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Renda Fixa Internacional</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Trusts & Holdings</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Compliance & Reporting</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Quant & Backtests</span>
+            <span class="px-3 py-1 rounded-full bg-slate-200/60 dark:bg-slate-800/60">Proteção de Portfólio</span>
+          </div>
+        </details>
+        <details class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5">
+          <summary class="cursor-pointer list-none flex items-center justify-between">
+            <span class="text-sm font-semibold">Como trabalhamos</span>
+            <svg class="h-4 w-4 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </summary>
+          <ol class="mt-3 text-sm text-slate-600 dark:text-slate-300 space-y-2">
+            <li>1) Leitura macro e regulatória → 2) Alocação estratégica → 3) Implementação tática → 4) Monitoramento.</li>
+            <li>Princípios: clareza, disciplina de risco e ética (conteúdo 100% educativo).</li>
+          </ol>
+        </details>
+      </div>
     </div>
   </section>
 
-  <!-- MÉTRICAS / CREDENCIAIS -->
+  <!-- MÉTRICAS -->
   <section class="py-8 sm:py-14 bg-white/60 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-3 gap-6 text-center">
-      <div class="rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-        <div class="text-3xl font-semibold">2+ anos</div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-3 gap-6 text-center" id="metrics">
+      <div class="rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 g-border">
+        <div class="text-3xl font-semibold"><span data-count="2">0</span>+ anos</div>
         <div class="text-sm text-slate-500 mt-1">vivência combinada de mercado</div>
       </div>
-      <div class="rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-        <div class="text-3xl font-semibold">3 frentes</div>
+      <div class="rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 g-border">
+        <div class="text-3xl font-semibold"><span data-count="3">0</span> frentes</div>
         <div class="text-sm text-slate-500 mt-1">varejo • asset • offshore</div>
       </div>
-      <div class="rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+      <div class="rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 g-border">
         <div class="text-3xl font-semibold">100% educativo</div>
         <div class="text-sm text-slate-500 mt-1">sem recomendação individual</div>
       </div>
     </div>
   </section>
 
-  <!-- LINHA DO TEMPO (EXEMPLO EDITÁVEL) -->
+  <!-- LINHA DO TEMPO -->
   <section class="py-16 sm:py-24">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       <h2 class="font-display text-3xl sm:text-4xl">Nossa trajetória</h2>
-      <p class="mt-3 text-slate-600 dark:text-slate-300">Resumo cronológico (edite os marcos conforme sua história).</p>
+      <p class="mt-3 text-slate-600 dark:text-slate-300">Resumo cronológico.</p>
 
       <ol class="mt-8 relative border-l border-slate-200 dark:border-slate-800">
-        <!-- Marco 1 -->
-        <li class="mb-10 ml-6">
+        <li class="relative mb-10 ml-6 pl-8 animate-in">
           <span class="absolute -left-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-brand-700 text-white text-[10px]">1</span>
           <h3 class="text-lg font-semibold">Início no atendimento ao investidor</h3>
           <p class="text-sm text-slate-500">Primeiras experiências com varejo, foco em objetivos e perfil de risco.</p>
         </li>
-        <!-- Marco 2 -->
-        <li class="mb-10 ml-6">
+        <li class="relative mb-10 ml-6 pl-8 animate-in" style="animation-delay:120ms">
           <span class="absolute -left-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-brand-700 text-white text-[10px]">2</span>
           <h3 class="text-lg font-semibold">Mesa de alocação • visão macro</h3>
           <p class="text-sm text-slate-500">Aprofundamento em asset allocation, construção e rebalanceamento de carteiras.</p>
         </li>
-        <!-- Marco 3 -->
-        <li class="mb-10 ml-6">
+        <li class="relative mb-10 ml-6 pl-8 animate-in" style="animation-delay:240ms">
           <span class="absolute -left-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-brand-700 text-white text-[10px]">3</span>
           <h3 class="text-lg font-semibold">Estruturas internacionais</h3>
           <p class="text-sm text-slate-500">Atuação com trusts, holdings e contas offshore, alinhando eficiência e governança.</p>
         </li>
-        <!-- Marco 4 -->
-        <li class="ml-6">
+        <li class="relative ml-6 pl-8 animate-in" style="animation-delay:360ms">
           <span class="absolute -left-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-brand-700 text-white text-[10px]">4</span>
           <h3 class="text-lg font-semibold">RPV Global Strategies</h3>
           <p class="text-sm text-slate-500">Integramos as três frentes para produzir conteúdo institucional e aplicável.</p>
@@ -282,29 +325,10 @@
     </div>
   </section>
 
-  <!-- ÁREAS DE ESPECIALIDADE -->
-  <section class="py-14 bg-white/60 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <h2 class="font-display text-3xl sm:text-4xl">Áreas de especialidade</h2>
-      <p class="mt-3 text-slate-600 dark:text-slate-300">Temas que mais aparecem em nossos materiais.</p>
-
-      <div class="mt-6 flex flex-wrap gap-2">
-        <span class="px-3 py-1 rounded-full text-sm bg-brand-600/10 text-brand-700 dark:text-brand-300">Alocação Global</span>
-        <span class="px-3 py-1 rounded-full text-sm bg-slate-200/60 dark:bg-slate-800/60">ETFs & REITs</span>
-        <span class="px-3 py-1 rounded-full text-sm bg-slate-200/60 dark:bg-slate-800/60">Renda Fixa Internacional</span>
-        <span class="px-3 py-1 rounded-full text-sm bg-slate-200/60 dark:bg-slate-800/60">Câmbio e Custos</span>
-        <span class="px-3 py-1 rounded-full text-sm bg-slate-200/60 dark:bg-slate-800/60">Trusts & Holdings</span>
-        <span class="px-3 py-1 rounded-full text-sm bg-slate-200/60 dark:bg-slate-800/60">Compliance & Reporting</span>
-        <span class="px-3 py-1 rounded-full text-sm bg-slate-200/60 dark:bg-slate-800/60">Quant & Backtests</span>
-        <span class="px-3 py-1 rounded-full text-sm bg-slate-200/60 dark:bg-slate-800/60">Proteção de Portfólio</span>
-      </div>
-    </div>
-  </section>
-
   <!-- VALORES & COMPLIANCE -->
   <section class="py-16 sm:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-start">
-      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 shadow-soft">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 shadow-soft animate-in">
         <h3 class="text-xl font-semibold">Nossos valores</h3>
         <ul class="mt-4 space-y-3 text-slate-600 dark:text-slate-300">
           <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-gold-500"></span><span><strong>Clareza:</strong> linguagem direta, sem jargões desnecessários.</span></li>
@@ -312,7 +336,7 @@
           <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-gold-500"></span><span><strong>Ética:</strong> conteúdo educativo, sem conflito com instituições.</span></li>
         </ul>
       </div>
-      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 shadow-soft">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 shadow-soft animate-in" style="animation-delay:120ms">
         <h3 class="text-xl font-semibold">Compliance & Limites</h3>
         <p class="mt-3 text-slate-600 dark:text-slate-300">
           O conteúdo da RPV Global Strategies é exclusivamente <strong>educativo e informativo</strong>. Não realizamos recomendação de investimento, distribuição de valores mobiliários, consultoria individualizada ou execução de estruturas jurídicas/fiscais.
@@ -329,7 +353,7 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
       <h3 class="font-display text-3xl sm:text-4xl">Quer acompanhar nossa visão?</h3>
       <p class="mt-3 text-slate-600 dark:text-slate-300">Assine o Radar RPV e receba a visão quinzenal com macro, tático e uma nota offshore.</p>
-      <a href="home.html#newsletter" class="mt-6 inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-brand-700 hover:bg-brand-600 text-white shadow-soft">
+      <a href="/home.html#newsletter" class="mt-6 inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-brand-700 hover:bg-brand-600 text-white shadow-soft">
         Assinar newsletter
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -349,10 +373,10 @@
         <div>
           <div class="font-semibold">Mapa do site</div>
           <ul class="mt-3 space-y-2 text-sm">
-            <li><a class="hover:underline" href="home.html">Início</a></li>
-            <li><a class="hover:underline" href="sobre.html">Sobre Nós</a></li>
-            <li><a class="hover:underline" href="newsletter.html">Newsletter</a></li>
-            <li><a class="hover:underline" href="contato.html">Contato</a></li>
+            <li><a class="hover:underline" href="/home.html">Início</a></li>
+            <li><a class="hover:underline" href="/sobre.html">Sobre Nós</a></li>
+            <li><a class="hover:underline" href="/newsletter.html">Newsletter</a></li>
+            <li><a class="hover:underline" href="/contato.html">Contato</a></li>
           </ul>
         </div>
         <div>
@@ -365,7 +389,7 @@
       </div>
       <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
         <p>© <span id="year"></span> RPV Global Strategies. Todos os direitos reservados.</p>
-        <a class="hover:underline" href="politica-de-privacidade.html">Política de Privacidade</a>
+        <a class="hover:underline" href="/politica-de-privacidade.html">Política de Privacidade</a>
       </div>
     </div>
   </footer>
@@ -387,6 +411,21 @@
 
     // Ano no footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('animate-in'); io.unobserve(en.target);} });
+    },{threshold:0.08});
+    document.querySelectorAll('.animate-in').forEach(el=> io.observe(el));
+
+    // Contadores
+    function countUp(el){
+      const end = Number(el.dataset.count || 0); let cur = 0; const step = Math.max(1, Math.ceil(end/40));
+      const t = setInterval(()=>{ cur += step; if(cur>=end){ cur=end; clearInterval(t);} el.textContent = cur; }, 20);
+    }
+    const metrics = document.getElementById('metrics');
+    const iom = new IntersectionObserver((e)=>{ e.forEach(x=>{ if(x.isIntersecting){ metrics.querySelectorAll('[data-count]').forEach(countUp); iom.disconnect(); } }); });
+    iom.observe(metrics);
   </script>
 </body>
 </html>
