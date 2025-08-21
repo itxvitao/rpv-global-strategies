@@ -289,37 +289,66 @@
     </div>
   </main>
 
-  <!-- FOOTER (padronizado) -->
-  <footer class="border-t border-slate-200 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+  <!-- FOOTER grande estilo private -->
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
       <div class="grid md:grid-cols-4 gap-8">
-        <div class="md:col-span-2">
-          <div class="text-lg font-semibold">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
-          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 max-w-md">
-            Conteúdo institucional e prático sobre alocação global, oportunidades internacionais e estruturas offshore. Para investidores que buscam clareza e execução.
-          </p>
-        </div>
         <div>
-          <div class="font-semibold">Mapa do site</div>
+          <div class="text-lg font-semibold">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 max-w-sm">
+            Conteúdo institucional e prático sobre alocação global, mercados e estruturas offshore.
+          </p>
+          <div class="mt-4 flex items-center gap-3">
+            <a href="https://www.instagram.com/rpvglobalstrategies/" target="_blank" aria-label="Instagram" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://linktr.ee/rpvglobal" target="_blank" aria-label="Linktree" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">
+              <i class="fa-solid fa-link"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/vyctor/" target="_blank" aria-label="LinkedIn" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="http://wa.me/5551992767479" target="_blank" aria-label="WhatsApp" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="font-semibold">Insights</div>
           <ul class="mt-3 space-y-2 text-sm">
-            <li><a class="hover:underline" href="home.html">Início</a></li>
-            <li><a class="hover:underline" href="sobre.html">Sobre Nós</a></li>
-            <li><a class="hover:underline" href="pilares.html">Pilares</a></li>
-            <li><a class="hover:underline" href="newsletter.html">Newsletter</a></li>
-            <li><a class="hover:underline" href="contato.html">Contato</a></li>
+            <li><a class="hover:underline" href="/insights/">Todos os insights</a></li>
+            <li><a class="hover:underline" href="/insights/?cat=Macroeconomia">Macroeconomia</a></li>
+            <li><a class="hover:underline" href="/insights/?cat=Carteiras%20%26%20Aloca%C3%A7%C3%A3o">Carteiras & Alocação</a></li>
+            <li><a class="hover:underline" href="/insights/?cat=Pol%C3%ADtica%20%26%20Regula%C3%A7%C3%A3o">Política & Regulação</a></li>
           </ul>
         </div>
+
         <div>
-          <div class="font-semibold">Legal</div>
-          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-            O conteúdo deste site é exclusivamente educativo e informativo, não constituindo recomendação de investimento,
-            oferta de valores mobiliários, consultoria ou análise individualizada.
-          </p>
+          <div class="font-semibold">Recursos</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="hover:underline" href="/newsletter.html/">Newsletter</a></li>
+            <li><a class="hover:underline" href="/sobre.html/">Sobre nós</a></li>
+            <li><a class="hover:underline" href="/contato.html/">Contato</a></li>
+            <li><a class="hover:underline" href="/politica-de-privacidade.html/">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="font-semibold">Assine</div>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Receba leituras objetivas, sem spam.</p>
+          <form action="https://formspree.io/f/SEU_ENDPOINT" method="POST" class="mt-3">
+            <input name="email" type="email" required placeholder="voce@exemplo.com" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-900 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-600" />
+            <button class="mt-2 w-full rounded-xl px-4 py-2 bg-brand-700 hover:bg-brand-600 text-white">Assinar</button>
+            <input type="text" name="_gotcha" style="display:none">
+          </form>
         </div>
       </div>
-      <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
-        <p>© <span id="year"></span> RPV Global Strategies. Todos os direitos reservados.</p>
-        <a class="hover:underline" href="politica-de-privacidade.html">Política de Privacidade</a>
+
+      <!-- disclaimer robusto -->
+      <div class="mt-10 text-xs text-slate-500 leading-relaxed">
+        <p><strong>Disclaimer:</strong> Este material tem caráter exclusivamente informativo e educativo, não constituindo oferta, recomendação de investimento, sugestão de alocação ou consultoria individualizada. As análises e opiniões refletem entendimento no momento da publicação e estão sujeitas a alterações sem aviso. Desempenhos passados não são garantia de resultados futuros. A RPV Global Strategies não é instituição financeira, não intermedeia a distribuição de valores mobiliários e não realiza a gestão de recursos de terceiros. Antes de investir, avalie seus objetivos, prazos, perfil de risco e, se necessário, procure assessoria qualificada.</p>
+        <p class="mt-2">© <span id="year"></span> RPV Global Strategies. Brasil. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>

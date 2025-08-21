@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Ciclo de Juros Global — Regime, Implicações e Tática — RPV Global Strategies</title>
+  <meta name="description" content="Leitura institucional do ciclo de juros global: regime, impactos em prazos, moedas e crédito. Framework tático de alocação e execução.">
+  <meta name="author" content="RPV Global Strategies">
+  <meta name="theme-color" content="#0B1F3A">
+  <link rel="canonical" href="/insights/2025-09-ciclo-de-juros-global.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ciclo de Juros Global — Regime, Implicações e Tática">
+  <meta property="og:description" content="Leitura institucional do ciclo de juros global com implicações práticas para alocação.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="/insights/2025-09-ciclo-de-juros-global.html">
+  <meta property="og:image" content="/assets/social-cover.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ciclo de Juros Global — Regime, Implicações e Tática">
+  <meta name="twitter:description" content="Leitura institucional do ciclo de juros global com implicações práticas para alocação.">
+  <meta name="twitter:image" content="/assets/social-cover.jpg">
+
+  <!-- Favicon (SVG inline data URI, redondo) -->
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+    <circle cx='32' cy='32' r='32' fill='%230B1F3A'/>
+    <text x='50%' y='50%' font-size='28' font-family='Montserrat, Arial, sans-serif' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central'>RPV</text>
+  </svg>">
+
+  <!-- Fonts / Tailwind -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'], display: ['Playfair Display','ui-serif','Georgia'] },
+          colors: {
+            brand:{50:'#f1f5ff',100:'#e6eeff',200:'#c6d9ff',300:'#9dbaff',400:'#6d91ff',500:'#436cff',600:'#2c4fe0',700:'#213bb3',800:'#1b2f8c',900:'#16276f'},
+            gold:{400:'#c8a960',500:'#b8943b'}
+          },
+          boxShadow:{ soft:'0 8px 30px rgba(2,6,23,0.08)', glow:'0 10px 40px rgba(67,108,255,.25)'},
+          keyframes:{
+            shimmer:{'0%':{backgroundPosition:'200% 0'},'100%':{backgroundPosition:'-200% 0'}},
+            in:{'0%':{opacity:0,transform:'translateY(12px) scale(.98)'},'100%':{opacity:1,transform:'translateY(0) scale(1)'}}
+          },
+          animation:{ shimmer:'shimmer 2.2s linear infinite', in:'in .6s cubic-bezier(.16,1,.3,1) both' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale }
+    .progress{ position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,#436cff,#b8943b); width:0; z-index:50 }
+    .toc a{ display:block; padding:.35rem 0; font-size:.95rem; color:inherit; opacity:.85 }
+    .toc a.active{ color:#436cff; opacity:1 }
+    .anchor::before{ content:'#'; opacity:.25; margin-right:.35rem }
+    .callout{ border-left:4px solid #436cff; padding:.9rem 1rem; background:rgba(67,108,255,.06); border-radius:.5rem }
+    .keybox{ background:linear-gradient(180deg, rgba(67,108,255,.08), rgba(67,108,255,.02)); }
+    .chart{ background:linear-gradient(135deg, rgba(67,108,255,.12), rgba(184,148,59,.10)); }
+    .table-wrap{ overflow-x:auto }
+    .kpi{border:1px solid rgba(148,163,184,.35)}
+  </style>
+  <script>
+    (function(){ const s=localStorage.getItem('theme'); const prefers=matchMedia('(prefers-color-scheme: dark)').matches; if(s==='dark'||(!s&&prefers)) document.documentElement.classList.add('dark'); })();
+  </script>
+
+  <!-- JSON-LD: BlogPosting + Breadcrumb + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"Ciclo de Juros Global — Regime, Implicações e Tática",
+    "datePublished":"2025-09-03",
+    "dateModified":"2025-09-03",
+    "author":{"@type":"Organization","name":"RPV Global Strategies"},
+    "publisher":{"@type":"Organization","name":"RPV Global Strategies"},
+    "url":"/insights/2025-09-ciclo-de-juros-global.html",
+    "image":"/assets/social-cover.jpg",
+    "description":"Leitura institucional do ciclo de juros global: regime, impactos em prazos, moedas e crédito. Framework tático e execução."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Início","item":"/home.html/"},
+      {"@type":"ListItem","position":2,"name":"Insights","item":"/insights/"},
+      {"@type":"ListItem","position":3,"name":"Ciclo de Juros Global","item":"/insights/2025-09-ciclo-de-juros-global.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Este material é recomendação de investimento?","acceptedAnswer":{"@type":"Answer","text":"Não. É conteúdo educativo e informativo, sem considerar objetivos, situação financeira ou necessidades específicas."}},
+      {"@type":"Question","name":"Como estimam o tempo de leitura?","acceptedAnswer":{"@type":"Answer","text":"Estimamos com base em ~200 palavras por minuto, ajustado ao volume de tabelas e figuras."}},
+      {"@type":"Question","name":"Vocês operam ou intermediam investimentos?","acceptedAnswer":{"@type":"Answer","text":"Não. A RPV não presta intermediação de valores mobiliários nem consultoria individual; não é instituição financeira."}}
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans">
+  <!-- Progress -->
+  <div id="progress" class="progress"></div>
+
+  <!-- Top Bar -->
+  <div class="w-full bg-brand-900/95 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
+      <p class="opacity-90">Conteúdo educativo. Não constitui recomendação individual.</p>
+      <button id="themeToggle" class="rounded-lg px-3 py-1.5 bg-brand-700 hover:bg-brand-600 transition text-sm">Alternar tema</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="/home.html/" class="flex items-center gap-3" aria-label="RPV Global Strategies — Início">
+          <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 ring-2 ring-brand-400/30 shadow-soft grid place-items-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-white" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M2 12h20M12 2c3 3.5 3 16.5 0 20M12 2c-3 3.5-3 16.5 0 20" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-lg font-semibold tracking-tight">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+            <div class="text-[12px] uppercase tracking-widest text-slate-500 dark:text-slate-400">Insights • Estratégias • Global</div>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-7" aria-label="Navegação principal">
+          <a href="/home.html/" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Início</a>
+          <a href="/pilares.html/" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Pilares</a>
+          <a href="/sobre.html/" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Sobre Nós</a>
+          <a href="/insights/" class="text-sm text-brand-700 dark:text-brand-400 font-medium">Insights</a>
+          <a href="/newsletter.html/" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Newsletter</a>
+          <a href="/contato.html/" class="text-sm hover:text-brand-600 dark:hover:text-brand-400">Contato</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 border border-slate-300/40 dark:border-slate-700" aria-expanded="false" aria-controls="mobileNav">
+          <span class="sr-only">Abrir menu</span>
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <nav class="px-4 py-3 space-y-2" aria-label="Menu mobile">
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/home.html/">Início</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/pilares.html/">Pilares</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/sobre.html/">Sobre Nós</a>
+        <a class="block px-3 py-2 rounded-lg bg-brand-600/10 text-brand-800 dark:text-brand-200" href="/insights/">Insights</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/newsletter.html/">Newsletter</a>
+        <a class="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" href="/contato.html/">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO editorial -->
+  <section class="relative overflow-hidden border-b border-slate-200/70 dark:border-slate-800/70">
+    <div class="absolute inset-0 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+      <!-- breadcrumb -->
+      <nav class="text-xs text-slate-500" aria-label="breadcrumb">
+        <ol class="flex flex-wrap gap-1">
+          <li><a class="hover:underline" href="/home.html/">Início</a></li><span>›</span>
+          <li><a class="hover:underline" href="/insights/">Insights</a></li><span>›</span>
+          <li class="text-slate-600 dark:text-slate-300">Ciclo de Juros Global</li>
+        </ol>
+      </nav>
+
+      <div class="grid lg:grid-cols-12 gap-8 mt-4">
+        <div class="lg:col-span-8">
+          <div class="flex items-center gap-2 text-xs uppercase tracking-widest text-slate-500">
+            <time datetime="2025-09-03">03 Set 2025</time> •
+            <span class="rounded bg-brand-600/10 text-brand-700 dark:text-brand-300 px-2 py-0.5">Macroeconomia</span>
+            <span class="rounded bg-slate-200 dark:bg-slate-800 px-2 py-0.5">Ciclo de Juros</span>
+          </div>
+          <h1 class="mt-2 font-display text-3xl sm:text-4xl leading-tight">Ciclo de Juros Global — Regime, Implicações e Tática</h1>
+          <p class="mt-2 text-slate-600 dark:text-slate-300 max-w-2xl">
+            Regime de inflação/atividade e o que ele sinaliza para prazos, moedas e crédito. Como traduzir em regras operacionais simples.
+          </p>
+          <div class="mt-3 text-sm text-slate-500 flex flex-wrap gap-3">
+            <span id="metaRead">—</span><span>•</span>
+            <span>Autores: Vyctor (Offshore), Rodrigo (Asset), Pedro (Varejo)</span>
+          </div>
+        </div>
+
+        <!-- share + sumário sticky -->
+        <aside class="lg:col-span-4">
+          <div class="sticky top-24 space-y-4">
+            <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+              <div class="font-semibold">Compartilhar</div>
+              <div class="mt-2 flex flex-wrap gap-2 text-sm">
+                <button id="copyLink" class="rounded-lg px-3 py-1.5 border border-slate-300 dark:border-slate-700">Copiar link</button>
+                <a id="shareWA" target="_blank" class="rounded-lg px-3 py-1.5 border border-slate-300 dark:border-slate-700" href="#">WhatsApp</a>
+                <a id="shareLI" target="_blank" class="rounded-lg px-3 py-1.5 border border-slate-300 dark:border-slate-700" href="#">LinkedIn</a>
+                <a id="shareTW" target="_blank" class="rounded-lg px-3 py-1.5 border border-slate-300 dark:border-slate-700" href="#">X</a>
+              </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+              <div class="font-semibold">Sumário</div>
+              <nav id="toc" class="toc mt-2"></nav>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- capa/arte -->
+      <div class="mt-6 h-56 sm:h-64 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
+        <div class="w-full h-full bg-[linear-gradient(110deg,rgba(255,255,255,.16),rgba(255,255,255,.06),transparent)] bg-[length:200%_100%] animate-shimmer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO -->
+  <main class="pb-20">
+    <article id="post" class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 mt-10">
+      <div class="lg:col-span-8 space-y-14 leading-relaxed text-slate-800 dark:text-slate-200">
+        <!-- Executive Summary -->
+        <section id="exec">
+          <h2 class="anchor text-xl font-semibold">Executive Summary</h2>
+          <div class="mt-3 grid sm:grid-cols-2 gap-3">
+            <div class="keybox rounded-xl p-4 border border-slate-200 dark:border-slate-800">
+              <div class="text-xs uppercase tracking-widest text-slate-500">Regime</div>
+              <p class="mt-1">[Placeholder] Desinflação gradual; atividade heterogênea; cortes graduais predominam.</p>
+            </div>
+            <div class="keybox rounded-xl p-4 border border-slate-200 dark:border-slate-800">
+              <div class="text-xs uppercase tracking-widest text-slate-500">Implicações</div>
+              <p class="mt-1">[Placeholder] Duration moderada; qualidade em crédito; hedge cambial seletivo.</p>
+            </div>
+          </div>
+          <div class="callout mt-4 text-sm">Trabalhamos com faixas e cenários, não com pontos exatos.</div>
+        </section>
+
+        <!-- Market Backdrop -->
+        <section id="backdrop">
+          <h2 class="anchor text-xl font-semibold">Market Backdrop</h2>
+          <p class="mt-2">[Placeholder] Contexto macro e de mercado — inflação, atividade, política monetária, curva de juros, dólar, spreads.</p>
+          <div class="mt-4 grid sm:grid-cols-2 gap-4">
+            <figure class="rounded-xl border border-slate-200 dark:border-slate-800 p-3">
+              <div class="h-40 rounded-lg chart"></div>
+              <figcaption class="mt-2 text-xs text-slate-500">[Placeholder] Curvas: nível e inclinação.</figcaption>
+            </figure>
+            <figure class="rounded-xl border border-slate-200 dark:border-slate-800 p-3">
+              <div class="h-40 rounded-lg chart"></div>
+              <figcaption class="mt-2 text-xs text-slate-500">[Placeholder] Spreads vs. PMIs.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- Scenario Analysis -->
+        <section id="scenarios">
+          <h2 class="anchor text-xl font-semibold">Scenario Analysis</h2>
+          <div class="table-wrap mt-3">
+            <table class="min-w-full text-sm border border-slate-200 dark:border-slate-800">
+              <thead class="bg-slate-50 dark:bg-slate-900">
+                <tr>
+                  <th class="p-3 text-left">Cenário</th>
+                  <th class="p-3 text-left">Growth/Inflation</th>
+                  <th class="p-3 text-left">Rates/FX</th>
+                  <th class="p-3 text-left">Crédito/Equities</th>
+                  <th class="p-3 text-left">Prob.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="p-3 font-medium">Base</td>
+                  <td class="p-3">[Placeholder]</td>
+                  <td class="p-3">[Placeholder]</td>
+                  <td class="p-3">[Placeholder]</td>
+                  <td class="p-3">60%</td>
+                </tr>
+                <tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="p-3 font-medium">Alta</td>
+                  <td class="p-3">[Placeholder]</td>
+                  <td class="p-3">[Placeholder]</td>
+                  <td class="p-3">[Placeholder]</td>
+                  <td class="p-3">25%</td>
+                </tr>
+                <tr class="border-t border-slate-200 dark:border-slate-800">
+                  <td class="p-3 font-medium">Baixa</td>
+                  <td class="p-3">[Placeholder]</td>
+                  <td class="p-3">[Placeholder]</td>
+                  <td class="p-3">[Placeholder]</td>
+                  <td class="p-3">15%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-2 text-xs text-slate-500">Notas: probabilidades indicativas; sujeito a revisão.</p>
+        </section>
+
+        <!-- Asset Allocation Implications -->
+        <section id="allocation">
+          <h2 class="anchor text-xl font-semibold">Asset Allocation Implications</h2>
+          <div class="mt-3 grid sm:grid-cols-3 gap-3">
+            <div class="rounded-xl p-4 kpi bg-white/70 dark:bg-slate-900/60">
+              <div class="text-xs uppercase tracking-widest text-slate-500">Duration</div>
+              <div class="text-lg font-semibold mt-1">Intermediária</div>
+              <div class="text-xs text-slate-500">Bandas ±1y</div>
+            </div>
+            <div class="rounded-xl p-4 kpi bg-white/70 dark:bg-slate-900/60">
+              <div class="text-xs uppercase tracking-widest text-slate-500">Crédito</div>
+              <div class="text-lg font-semibold mt-1">Quality > HY</div>
+              <div class="text-xs text-slate-500">Limites por emissor</div>
+            </div>
+            <div class="rounded-xl p-4 kpi bg-white/70 dark:bg-slate-900/60">
+              <div class="text-xs uppercase tracking-widest text-slate-500">Moedas</div>
+              <div class="text-lg font-semibold mt-1">Hedge Parcial</div>
+              <div class="text-xs text-slate-500">Implícita barata</div>
+            </div>
+          </div>
+          <div class="mt-4 callout text-sm">Disciplina de rebalance por bandas vence convicção de curto prazo.</div>
+        </section>
+
+        <!-- Implementation Notes -->
+        <section id="implementation">
+          <h2 class="anchor text-xl font-semibold">Implementation Notes</h2>
+          <ul class="mt-2 list-disc ml-5">
+            <li>[Placeholder] Custos all-in e liquidez considerados ex-ante.</li>
+            <li>[Placeholder] Uso de ETFs/fundos com due diligence de tracking error.</li>
+            <li>[Placeholder] Hedge cambial oportunístico; evitar over-hedge.</li>
+          </ul>
+        </section>
+
+        <!-- Risks & Monitoring -->
+        <section id="risks">
+          <h2 class="anchor text-xl font-semibold">Risks & Monitoring</h2>
+          <ul class="mt-2 list-disc ml-5">
+            <li>[Placeholder] Reaceleração de serviços/inflation sticky.</li>
+            <li>[Placeholder] Surpresas em payroll/PMIs.</li>
+            <li>[Placeholder] Aperto de condições financeiras.</li>
+          </ul>
+        </section>
+
+        <!-- Methodology & Sources -->
+        <section id="methods">
+          <h2 class="anchor text-xl font-semibold">Methodology & Sources</h2>
+          <p class="mt-2 text-sm">[Placeholder] Séries públicas, modelos proprietários simples e julgamentos qualitativos; atualização quinzenal.</p>
+        </section>
+
+        <!-- FAQs -->
+        <section id="faqs">
+          <h2 class="anchor text-xl font-semibold">FAQs</h2>
+          <details class="mt-2 rounded-lg border border-slate-200 dark:border-slate-800 p-3">
+            <summary class="cursor-pointer font-medium">Este material é recomendação?</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Não. É educativo e informativo.</p>
+          </details>
+          <details class="mt-2 rounded-lg border border-slate-200 dark:border-slate-800 p-3">
+            <summary class="cursor-pointer font-medium">Como estimam o tempo de leitura?</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">~200 palavras por minuto como base.</p>
+          </details>
+        </section>
+
+        <!-- CTA & Navegação -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-6 border-t border-slate-200 dark:border-slate-800">
+          <a href="/insights/" class="inline-flex items-center gap-2 hover:underline">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Voltar para Insights
+          </a>
+          <div class="flex items-center gap-2">
+            <a href="/assets/relatorios/ciclo-juros-2025.pdf" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-brand-700 hover:bg-brand-600 text-white" download>Baixar PDF</a>
+            <a href="/newsletter.html/" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-slate-300 dark:border-slate-700">Assine o Radar RPV</a>
+          </div>
+        </div>
+
+        <!-- Prev/Next (exemplos) -->
+        <nav class="text-sm flex flex-col sm:flex-row justify-between gap-4 opacity-80">
+          <a href="/insights/2025-08-custo-de-capital.html">← WACC 2025: juros reais, ERP e dólar</a>
+          <a href="/insights/2025-09-core-satellite-execucao.html">Core & Satélites — execução e bandas →</a>
+        </nav>
+
+        <!-- Autores -->
+        <section class="pt-6 border-t border-slate-200 dark:border-slate-800">
+          <h3 class="text-lg font-semibold">Autores</h3>
+          <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            <li><strong>Vyctor</strong> — Trusts & Offshore</li>
+            <li><strong>Rodrigo</strong> — Investor (Asset Allocation)</li>
+            <li><strong>Pedro</strong> — Assessor (Varejo XP)</li>
+          </ul>
+        </section>
+
+        <!-- Disclaimer do artigo -->
+        <aside class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-sm">
+          <strong>Transparência:</strong> material educativo e informativo; não constitui recomendação individual nem oferta de valores mobiliários.
+        </aside>
+      </div>
+
+      <!-- Sidebar direita: destacados e relacionados -->
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+          <div class="font-semibold">Key Takeaways</div>
+          <ul class="mt-2 text-sm space-y-2">
+            <li>• [Placeholder] Duration moderada; bandas.</li>
+            <li>• [Placeholder] Crédito: qualidade > HY.</li>
+            <li>• [Placeholder] Hedge parcial e oportunístico.</li>
+          </ul>
+        </div>
+
+        <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+          <div class="font-semibold">Related insights</div>
+          <div id="related" class="mt-2 space-y-2 text-sm"></div>
+        </div>
+
+        <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+          <div class="font-semibold">Contato institucional</div>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Parcerias, imprensa e convites.</p>
+          <a class="mt-3 inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-brand-700 hover:bg-brand-600 text-white" href="/contato.html/">Fale com a RPV</a>
+        </div>
+      </aside>
+    </article>
+  </main>
+
+  <!-- FOOTER grande estilo private -->
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="text-lg font-semibold">RPV <span class="text-brand-700 dark:text-brand-400">Global Strategies</span></div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 max-w-sm">
+            Conteúdo institucional e prático sobre alocação global, mercados e estruturas offshore.
+          </p>
+          <div class="mt-4 flex items-center gap-3">
+            <a href="https://www.instagram.com/rpvglobalstrategies/" target="_blank" aria-label="Instagram" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://linktr.ee/rpvglobal" target="_blank" aria-label="Linktree" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">
+              <i class="fa-solid fa-link"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/vyctor/" target="_blank" aria-label="LinkedIn" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="http://wa.me/5551992767479" target="_blank" aria-label="WhatsApp" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="font-semibold">Insights</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="hover:underline" href="/insights/">Todos os insights</a></li>
+            <li><a class="hover:underline" href="/insights/?cat=Macroeconomia">Macroeconomia</a></li>
+            <li><a class="hover:underline" href="/insights/?cat=Carteiras%20%26%20Aloca%C3%A7%C3%A3o">Carteiras & Alocação</a></li>
+            <li><a class="hover:underline" href="/insights/?cat=Pol%C3%ADtica%20%26%20Regula%C3%A7%C3%A3o">Política & Regulação</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="font-semibold">Recursos</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="hover:underline" href="/newsletter.html/">Newsletter</a></li>
+            <li><a class="hover:underline" href="/sobre.html/">Sobre nós</a></li>
+            <li><a class="hover:underline" href="/contato.html/">Contato</a></li>
+            <li><a class="hover:underline" href="/politica-de-privacidade.html/">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="font-semibold">Assine</div>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Receba leituras objetivas, sem spam.</p>
+          <form action="https://formspree.io/f/SEU_ENDPOINT" method="POST" class="mt-3">
+            <input name="email" type="email" required placeholder="voce@exemplo.com" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-900 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-600" />
+            <button class="mt-2 w-full rounded-xl px-4 py-2 bg-brand-700 hover:bg-brand-600 text-white">Assinar</button>
+            <input type="text" name="_gotcha" style="display:none">
+          </form>
+        </div>
+      </div>
+
+      <!-- disclaimer robusto -->
+      <div class="mt-10 text-xs text-slate-500 leading-relaxed">
+        <p><strong>Disclaimer:</strong> Este material tem caráter exclusivamente informativo e educativo, não constituindo oferta, recomendação de investimento, sugestão de alocação ou consultoria individualizada. As análises e opiniões refletem entendimento no momento da publicação e estão sujeitas a alterações sem aviso. Desempenhos passados não são garantia de resultados futuros. A RPV Global Strategies não é instituição financeira, não intermedeia a distribuição de valores mobiliários e não realiza a gestão de recursos de terceiros. Antes de investir, avalie seus objetivos, prazos, perfil de risco e, se necessário, procure assessoria qualificada.</p>
+        <p class="mt-2">© <span id="year"></span> RPV Global Strategies. Brasil. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Font Awesome (ícones sociais) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
+
+  <!-- Scripts -->
+  <script>
+    // Menu mobile + tema
+    document.getElementById('menuBtn')?.addEventListener('click', () => {
+      const nav = document.getElementById('mobileNav');
+      const expanded = nav.classList.toggle('hidden');
+      document.getElementById('menuBtn').setAttribute('aria-expanded', !expanded);
+    });
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      const root = document.documentElement; const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Barra de progresso
+    const progress=document.getElementById('progress');
+    window.addEventListener('scroll',()=>{
+      const h=document.documentElement;
+      const scrolled=h.scrollTop;
+      const height=h.scrollHeight - h.clientHeight;
+      progress.style.width = (scrolled/height*100)+'%';
+    });
+
+    // Tempo de leitura
+    function estimateReadMins(){
+      const text = document.getElementById('post').innerText || '';
+      const words = text.trim().split(/\s+/).length;
+      return Math.max(5, Math.round(words/200));
+    }
+    document.getElementById('metaRead').textContent = `${estimateReadMins()} min de leitura`;
+
+    // TOC + âncoras + scrollspy
+    const toc=document.getElementById('toc');
+    const sections=[...document.querySelectorAll('#post h2')];
+    sections.forEach(h=>{
+      const id=h.id || h.textContent.trim().toLowerCase().replace(/[^\w]+/g,'-');
+      h.id=id; h.classList.add('anchor');
+      const a=document.createElement('a'); a.href='#'+id; a.textContent=h.textContent;
+      toc.appendChild(a);
+    });
+    const tocLinks=[...toc.querySelectorAll('a')];
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          tocLinks.forEach(x=>x.classList.remove('active'));
+          const link=toc.querySelector('a[href="#'+e.target.id+'"]');
+          link?.classList.add('active');
+        }
+      });
+    },{ rootMargin:'-40% 0px -55% 0px', threshold:0 });
+    sections.forEach(s=>io.observe(s));
+
+    // Share
+    const url = location.href;
+    document.getElementById('copyLink').onclick = async ()=>{
+      try{ await navigator.clipboard.writeText(url); alert('Link copiado!'); }catch(e){ alert('Copie manualmente: '+url); }
+    };
+    document.getElementById('shareWA').href = `https://wa.me/?text=${encodeURIComponent(document.title+' — '+url)}`;
+    document.getElementById('shareLI').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+    document.getElementById('shareTW').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(url)}`;
+
+    // Relacionados (placeholder simples por tags/palavras)
+    const related = [
+      { t:'WACC 2025: juros reais, ERP e dólar', u:'/insights/2025-08-custo-de-capital.html', d:'2025-08-12' },
+      { t:'Core + Satélites para UHNW/HNW', u:'/insights/2025-08-core-satellite.html', d:'2025-08-05' },
+      { t:'Nota macro: o que realmente importa na semana', u:'/insights/nota-macro.html', d:'2025-08-07' }
+    ];
+    const relatedBox = document.getElementById('related');
+    related.forEach(p=>{
+      const el=document.createElement('div');
+      el.innerHTML = `<a class="hover:underline" href="${p.u}" data-prefetch>${p.t}</a>
+                      <div class="text-xs text-slate-500">${new Date(p.d).toLocaleDateString('pt-BR')}</div>`;
+      relatedBox.appendChild(el);
+    });
+
+    // Prefetch nos links marcados
+    document.querySelectorAll('[data-prefetch]').forEach(a=>{
+      const href = a.getAttribute('href'); if(!href) return;
+      let linkEl;
+      const ensure = ()=> {
+        if(linkEl) return;
+        linkEl = document.createElement('link');
+        linkEl.rel = 'prefetch';
+        linkEl.href = href;
+        document.head.appendChild(linkEl);
+      };
+      a.addEventListener('mouseenter', ensure);
+      a.addEventListener('focus', ensure);
+    });
+
+    // Ano
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
